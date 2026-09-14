@@ -394,7 +394,7 @@ button,a,summary,input,select{ -webkit-tap-highlight-color: rgba(0,0,0,.08); }
             <div class="field"><label>Umur</label><input id="age" type="number" min="13" max="70" value="17"></div>
             <div class="field"><label>Jantina <span style="font-weight:500;color:#6b7280">(untuk syarat kursus tertentu)</span></label><select id="gender"><option value="">Belum dipilih</option><option value="MALE">Lelaki</option><option value="FEMALE">Perempuan</option></select></div>
             <div class="field full"><label>Negeri Pilihan</label><select id="state"><option value="">Semua negeri</option><option>JOHOR</option><option>KEDAH</option><option>KELANTAN</option><option>MELAKA</option><option>NEGERI SEMBILAN</option><option>PAHANG</option><option>PERAK</option><option>PERLIS</option><option>PULAU PINANG</option><option>SABAH</option><option>SARAWAK</option><option>SELANGOR</option><option>TERENGGANU</option><option>W.PERSEKUTUAN (KL)</option><option>W.PERSEKUTUAN (LABUAN)</option></select></div>
-            <div class="field full"><label>Bidang Minat (Pilihan — untuk ranking sahaja)</label><select id="careerInterest"><option value="">Tidak pasti / jangan gunakan minat</option><option value="ELECTRICAL_ELECTRONICS">Elektrik, Elektronik & Instrumentasi</option><option value="AUTOMOTIVE">Automotif</option><option value="MACHINING_MANUFACTURING">Pemesinan & Pembuatan</option><option value="WELDING">Kimpalan & Fabrikasi</option><option value="CONSTRUCTION_ARCHITECTURE">Pembinaan, Awam & Senibina</option></select><div class="mini">Pilihan ini tidak menentukan kelayakan. Ia hanya membantu menyusun kursus yang sudah dinilai oleh enjin syarat rasmi.</div></div>
+            <div class="field full interest-field"><label for="careerInterest">Bidang Minat (Pilihan — untuk ranking sahaja)</label><input id="careerInterest" type="text" list="careerInterestList" placeholder="Taip minat, contoh: komputer, pesawat, kulinari, elektrik..." autocomplete="off" spellcheck="false"><datalist id="careerInterestList"><option value="Elektrik, Elektronik & Instrumentasi"></option><option value="Automotif, Motosikal & Kenderaan Berat"></option><option value="Pemesinan, Pembuatan & CAD/CAM"></option><option value="Kimpalan, Fabrikasi & Logam"></option><option value="Pembinaan, Awam, Bangunan & Senibina"></option><option value="Penyelenggaraan Mekanikal & Industri"></option><option value="Mekatronik, Automasi & Pembuatan Pintar"></option><option value="Komputer, Rangkaian, Awan & Keselamatan Siber"></option><option value="Multimedia, Grafik & Rekabentuk Kreatif"></option><option value="Penyejukbekuan & Penyamanan Udara"></option><option value="Telekomunikasi"></option><option value="Pesawat & Aeroangkasa"></option><option value="Marin & Kejuruteraan Kapal"></option><option value="Minyak, Gas, Petroleum & Loji"></option><option value="Fesyen, Jahitan & Pakaian"></option><option value="Masakan, Bakeri, Pramusaji & Pemprosesan Makanan"></option><option value="Pertanian, Tanaman, Padi & Hortikultur"></option><option value="Ternakan, Ruminan & Veterinar"></option><option value="Akuakultur & Perikanan"></option><option value="Perladangan, Sawit & Getah"></option><option value="Kayu, Perabot & Pembuatan Perabot"></option><option value="Jualan & Pemasaran Produk Pertanian"></option></datalist><div class="mini">Boleh pilih cadangan atau taip sendiri, contohnya <b>pesawat</b>, <b>komputer</b>, <b>sawit</b> atau <b>kulinari</b>. Minat tidak menentukan kelayakan; ia hanya membantu menyusun kursus yang telah dinilai oleh enjin syarat rasmi.</div></div>
           </div>
 
           <div class="block-kicker" style="margin-top:20px"><span class="bar"></span><h3>Fokus Institusi (Pilihan)</h3></div>
@@ -1566,30 +1566,75 @@ function updateAuditStats(){const x=auditLedgerStats(),map={auditRuns:x.runs,aud
 window.TVETMATCH_AUDIT={version:ELIGIBILITY_AUDIT_VERSION,engineVersion:ENGINE_VERSION,evaluate:evaluateAudited,stats:auditLedgerStats,export:exportAuditLedger,clear:clearAuditLedger,get:()=>ELIGIBILITY_AUDIT_LEDGER};
 
 
-/* v17 Ranking & Fit Engine: ranking is supplementary and must never change eligibility status. */
-const FIT_ENGINE_VERSION='fit-1.0';
+/* v118 Ranking & Fit Engine: searchable/free-text interest. Ranking remains supplementary and never changes eligibility status. */
+const FIT_ENGINE_VERSION='fit-1.1';
 const FIT_DOMAIN_META={
- ELECTRICAL_ELECTRONICS:{label:'Elektrik / Elektronik / Instrumentasi',keywords:['ELEKTRIK','ELEKTRONIK','INSTRUMEN','KUASA'],skmFamilies:['ELECTRICAL','ELECTRONICS'],subjectCodes:['7104','7109','8817','8202','3762']},
- AUTOMOTIVE:{label:'Automotif',keywords:['AUTOMOTIF','KENDERAAN','MOTOSIKAL','BAIKPULIH BADAN'],skmFamilies:['AUTOMOTIVE','AUTO_BODY'],subjectCodes:['7106','7107','8321','8322','8828']},
- MACHINING_MANUFACTURING:{label:'Pemesinan / Pembuatan',keywords:['PEMESINAN','PEMBUATAN','MESIN','CNC'],skmFamilies:['MACHINING'],subjectCodes:['8811']},
- WELDING:{label:'Kimpalan / Fabrikasi',keywords:['KIMPALAN','FABRIKASI'],skmFamilies:[],subjectCodes:['7105','8331','8332','8823']},
- CONSTRUCTION_ARCHITECTURE:{label:'Pembinaan / Awam / Senibina',keywords:['PEMBINAAN','AWAM','STRUKTUR','SENIBINA','BANGUNAN'],skmFamilies:['ARCH_DRAFTING','MECH_DRAFTING'],subjectCodes:['3761','7101','7103','8815']}
+ ELECTRICAL_ELECTRONICS:{label:'Elektrik, Elektronik & Instrumentasi',aliases:['ELEKTRIK','ELEKTRONIK','INSTRUMENTASI','INSTRUMEN','KUASA','PENDAWAIAN','PENJAGA JENTERA'],keywords:['ELEKTRIK','ELEKTRONIK','INSTRUMEN','KUASA','PENDAWAIAN','PENJAGA JENTERA'],skmFamilies:['ELECTRICAL','ELECTRONICS'],subjectCodes:['7104','7109','8817','8202','3762']},
+ AUTOMOTIVE:{label:'Automotif, Motosikal & Kenderaan Berat',aliases:['AUTOMOTIF','KERETA','MOTOSIKAL','MOTOR','KENDERAAN','LORI','KENDERAAN BERAT'],keywords:['AUTOMOTIF','KENDERAAN','MOTOSIKAL','BAIKPULIH BADAN','BAIK PULIH BADAN','PERDAGANGAN BERAT'],skmFamilies:['AUTOMOTIVE','AUTO_BODY'],subjectCodes:['7106','7107','8321','8322','8828']},
+ MACHINING_MANUFACTURING:{label:'Pemesinan, Pembuatan & CAD/CAM',aliases:['PEMESINAN','PEMBUATAN','CNC','CAD CAM','CAD/CAM','REKABENTUK PRODUK','REKA BENTUK PRODUK'],keywords:['PEMESINAN','PEMBUATAN','CNC','CAD/CAM','CAD CAM','REKABENTUK PRODUK','REKA BENTUK PRODUK','ACUAN PLASTIK','POLIMER','PEMPROSESAN PLASTIK'],skmFamilies:['MACHINING'],subjectCodes:['8811']},
+ WELDING:{label:'Kimpalan, Fabrikasi & Logam',aliases:['KIMPALAN','WELDING','FABRIKASI','LOGAM'],keywords:['KIMPALAN','FABRIKASI','UJIAN TANPA MUSNAH','KEPINGAN LOGAM'],skmFamilies:[],subjectCodes:['7105','8331','8332','8823']},
+ CONSTRUCTION_ARCHITECTURE:{label:'Pembinaan, Awam, Bangunan & Senibina',aliases:['PEMBINAAN','AWAM','BANGUNAN','SENIBINA','ARKITEK','STRUKTUR','PAIP','SANITARI'],keywords:['PEMBINAAN','AWAM','STRUKTUR','SENIBINA','BANGUNAN','BINAAN','JALANRAYA','JALAN RAYA','PERPAIPAN','PAIP','SANITARI'],skmFamilies:['ARCH_DRAFTING','MECH_DRAFTING'],subjectCodes:['3761','7101','7103','8815']},
+ MECHANICAL_MAINTENANCE:{label:'Penyelenggaraan Mekanikal & Industri',aliases:['MEKANIKAL','PENYELENGGARAAN','INDUSTRI','LOJI MEKANIKAL'],keywords:['PENYELENGGARAAN MEKANIKAL','PENYELENGGARAAN INDUSTRI','PENYELENGGARAAN LOJI','MEKANIKAL'],skmFamilies:[],subjectCodes:[]},
+ MECHATRONICS_AUTOMATION:{label:'Mekatronik, Automasi & Pembuatan Pintar',aliases:['MEKATRONIK','AUTOMASI','ROBOTIK','PEMBUATAN PINTAR','SMART MANUFACTURING'],keywords:['MEKATRONIK','AUTOMASI','PEMBUATAN PINTAR'],skmFamilies:[],subjectCodes:[]},
+ ICT_NETWORK_CYBER:{label:'Komputer, Rangkaian, Awan & Keselamatan Siber',aliases:['KOMPUTER','IT','ICT','RANGKAIAN','NETWORK','SISTEM KOMPUTER','AWAN','CLOUD','KESELAMATAN SIBER','CYBERSECURITY','CYBER'],keywords:['KOMPUTER','RANGKAIAN','KOMPUTASI AWAN','KESELAMATAN SIBER','SISTEM PENTADBIRAN'],skmFamilies:[],subjectCodes:[]},
+ CREATIVE_MULTIMEDIA:{label:'Multimedia, Grafik & Rekabentuk Kreatif',aliases:['MULTIMEDIA','GRAFIK','REKABENTUK GRAFIK','REKA BENTUK GRAFIK','KREATIF','DESIGN'],keywords:['MULTIMEDIA','GRAFIK','REKABENTUK GRAFIK','REKA BENTUK GRAFIK','REKA TANDA'],skmFamilies:[],subjectCodes:[]},
+ HVAC_REFRIGERATION:{label:'Penyejukbekuan & Penyamanan Udara',aliases:['AIRCOND','AIR COND','PENYAMANAN UDARA','PENYEJUKBEKUAN','PENYEJUKAN','HVAC'],keywords:['PENYEJUKBEKUAN','PENYEJUKAN','PENYAMANAN UDARA'],skmFamilies:[],subjectCodes:[]},
+ TELECOMMUNICATIONS:{label:'Telekomunikasi',aliases:['TELEKOMUNIKASI','TELECOM','TELCO'],keywords:['TELEKOMUNIKASI'],skmFamilies:[],subjectCodes:[]},
+ AVIATION_AEROSPACE:{label:'Pesawat & Aeroangkasa',aliases:['PESAWAT','AEROANGKASA','AVIASI','AIRCRAFT'],keywords:['PESAWAT','AEROANGKASA','AVIASI'],skmFamilies:[],subjectCodes:[]},
+ MARINE:{label:'Marin & Kejuruteraan Kapal',aliases:['MARIN','KAPAL','MARITIM'],keywords:['MARIN','KAPAL'],skmFamilies:[],subjectCodes:[]},
+ OIL_GAS:{label:'Minyak, Gas, Petroleum & Loji',aliases:['MINYAK DAN GAS','MINYAK & GAS','OIL AND GAS','OIL & GAS','PETROLEUM','LOJI','GAS'],keywords:['MINYAK DAN GAS','MINYAK & GAS','PETROLEUM','PLANT DOWNSTREAM','KEJURUTERAAN GAS','PEMASANGAN PAIP MINYAK'],skmFamilies:[],subjectCodes:[]},
+ FASHION_SEWING:{label:'Fesyen, Jahitan & Pakaian',aliases:['FESYEN','JAHITAN','PAKAIAN','FASHION'],keywords:['FESYEN','JAHITAN','PAKAIAN'],skmFamilies:[],subjectCodes:[]},
+ FOOD_CULINARY:{label:'Masakan, Bakeri, Pramusaji & Pemprosesan Makanan',aliases:['MASAKAN','KULINARI','BAKERI','PRAMUSAJI','MAKANAN','KATERING','CONFECTIONERY','KONFEKSIONERI'],keywords:['MASAKAN','PRAMUSAJI','BAKERI','KONFEKSIONERI','PENGELUARAN MAKANAN','PEMPROSESAN MAKANAN','PEMBUATAN MAKANAN'],skmFamilies:[],subjectCodes:[]},
+ AGRICULTURE_CROPS:{label:'Pertanian, Tanaman, Padi & Hortikultur',aliases:['PERTANIAN','TANAMAN','PADI','HORTIKULTUR','AGRO','AGRIKULTUR'],keywords:['PERTANIAN','TANAMAN','PADI','HORTIKULTUR'],skmFamilies:[],subjectCodes:[]},
+ LIVESTOCK_VETERINARY:{label:'Ternakan, Ruminan & Veterinar',aliases:['TERNAKAN','RUMINAN','VETERINAR','HAIWAN'],keywords:['RUMINAN','VETERINAR','TERNAKAN'],skmFamilies:[],subjectCodes:[]},
+ AQUACULTURE_FISHERIES:{label:'Akuakultur & Perikanan',aliases:['AKUAKULTUR','PERIKANAN','IKAN'],keywords:['AKUAKULTUR','PERIKANAN'],skmFamilies:[],subjectCodes:[]},
+ PLANTATION_COMMODITIES:{label:'Perladangan, Sawit & Getah',aliases:['PERLADANGAN','SAWIT','KELAPA SAWIT','GETAH','KOMODITI'],keywords:['LADANG SAWIT','KELAPA SAWIT','SAWIT','GETAH KERING','PERLADANGAN'],skmFamilies:[],subjectCodes:[]},
+ WOOD_FURNITURE:{label:'Kayu, Perabot & Pembuatan Perabot',aliases:['KAYU','PERABOT','FURNITURE'],keywords:['PERABOT','KAYU'],skmFamilies:[],subjectCodes:[]},
+ AGRI_SALES_MARKETING:{label:'Jualan & Pemasaran Produk Pertanian',aliases:['JUALAN','PEMASARAN','MARKETING','JUALAN PERTANIAN','PEMASARAN PERTANIAN'],keywords:['JUALAN DAN PEMASARAN','JUALAN','PEMASARAN'],skmFamilies:[],subjectCodes:[]}
 };
-function fitNorm(x){return String(x||'').toUpperCase()}
+function fitNorm(x){return String(x||'').normalize?.('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().trim()||''}
+function interestTokens(x){return fitNorm(x).split(/[^A-Z0-9]+/).filter(t=>t.length>=3&&!['DAN','DENGAN','UNTUK','TEKNOLOGI','KEJURUTERAAN','BIDANG'].includes(t))}
+function resolveInterestDomains(value){
+ const q=fitNorm(value);if(!q)return [];
+ if(FIT_DOMAIN_META[q])return [q];
+ const scored=[];
+ for(const [id,d] of Object.entries(FIT_DOMAIN_META)){
+  const label=fitNorm(d.label),aliases=(d.aliases||[]).map(fitNorm),keywords=(d.keywords||[]).map(fitNorm);
+  let score=0;
+  if(q===label||aliases.includes(q))score=100;
+  else if(label.includes(q)||q.includes(label))score=Math.max(score,80);
+  for(const a of aliases)if(a&&((q.includes(a)&&a.length>=3)||(a.includes(q)&&q.length>=3)))score=Math.max(score,70);
+  for(const k of keywords)if(k&&((q.includes(k)&&k.length>=3)||(k.includes(q)&&q.length>=3)))score=Math.max(score,65);
+  const qt=interestTokens(q),dt=interestTokens([d.label,...(d.aliases||[]),...(d.keywords||[])].join(' '));
+  const overlap=qt.filter(t=>dt.includes(t)).length;if(overlap)score=Math.max(score,40+Math.min(20,overlap*10));
+  if(score)scored.push([id,score]);
+ }
+ return scored.sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
+}
+function interestDisplayLabel(value){const q=fitNorm(value);if(!q)return '';if(FIT_DOMAIN_META[q])return FIT_DOMAIN_META[q].label;const d=resolveInterestDomains(value)[0];return d&&FIT_DOMAIN_META[d]&&fitNorm(value)===fitNorm(FIT_DOMAIN_META[d].label)?FIT_DOMAIN_META[d].label:String(value).trim()}
 function courseDomains(c){
  const hay=fitNorm([c.name,c.code,c.nossCode,c.credentialFull].filter(Boolean).join(' ')),hits=[];
- for(const [id,d] of Object.entries(FIT_DOMAIN_META))if(d.keywords.some(k=>hay.includes(k)))hits.push(id);
+ for(const [id,d] of Object.entries(FIT_DOMAIN_META))if((d.keywords||[]).some(k=>hay.includes(fitNorm(k))))hits.push(id);
  return hits.length?[...new Set(hits)]:['GENERAL'];
+}
+function interestCourseMatch(c,value,domains=courseDomains(c)){
+ const raw=String(value||'').trim();if(!raw)return null;
+ const resolved=resolveInterestDomains(raw),domainHit=resolved.find(id=>domains.includes(id));
+ if(domainHit)return {score:35,label:FIT_DOMAIN_META[domainHit]?.label||raw,mode:'domain',domain:domainHit};
+ const hay=fitNorm([c.name,c.code,c.nossCode,c.credentialFull].filter(Boolean).join(' '));
+ const tokens=interestTokens(raw),matched=tokens.filter(t=>hay.includes(t));
+ if(matched.length)return {score:Math.min(35,24+matched.length*5),label:raw,mode:'text',matched};
+ return null;
 }
 function subjectDomainHits(p,domain){
  const meta=FIT_DOMAIN_META[domain];if(!meta)return [];
  const entries=Object.entries(p.transcript||{}).filter(([,g])=>!isUnknown(g)&&!isAbsent(g));
- return entries.filter(([code])=>meta.subjectCodes.includes(code)||meta.keywords.some(k=>fitNorm(SUBJECT_BY_CODE[code]?.name).includes(k))).map(([code,g])=>({code,grade:g,name:SUBJECT_BY_CODE[code]?.name||code}));
+ return entries.filter(([code])=>(meta.subjectCodes||[]).includes(code)||(meta.keywords||[]).some(k=>fitNorm(SUBJECT_BY_CODE[code]?.name).includes(fitNorm(k)))).map(([code,g])=>({code,grade:g,name:SUBJECT_BY_CODE[code]?.name||code}));
 }
-function mpvDomainMatch(p,domain){if(!p.mpvCode)return false;const meta=FIT_DOMAIN_META[domain];if(!meta)return false;const name=fitNorm(SUBJECT_BY_CODE[p.mpvCode]?.name||p.mpvSubject);return meta.subjectCodes.includes(p.mpvCode)||meta.keywords.some(k=>name.includes(k))}
+function mpvDomainMatch(p,domain){if(!p.mpvCode)return false;const meta=FIT_DOMAIN_META[domain];if(!meta)return false;const name=fitNorm(SUBJECT_BY_CODE[p.mpvCode]?.name||p.mpvSubject);return (meta.subjectCodes||[]).includes(p.mpvCode)||(meta.keywords||[]).some(k=>name.includes(fitNorm(k)))}
 function fitCourse(c,p,eligibility){
  const domains=courseDomains(c),components={interest:0,pathway:0,academic:0,location:0},reasons=[];
- if(p.careerInterest&&domains.includes(p.careerInterest)){components.interest=35;reasons.push(`Bidang minat sepadan: ${FIT_DOMAIN_META[p.careerInterest]?.label||p.careerInterest}`)}
+ const interestHit=interestCourseMatch(c,p.careerInterest,domains);if(interestHit){components.interest=interestHit.score;reasons.push(`Bidang minat sepadan: ${interestHit.label}`)}
  if(p.skmFamily){const d=domains.find(x=>FIT_DOMAIN_META[x]?.skmFamilies?.includes(p.skmFamily));if(d){components.pathway=35;reasons.push(`Kesinambungan SKM: ${p.skmFamily.replaceAll('_',' ')}`)}}
  if(!components.pathway&&p.mpvCode){const d=domains.find(x=>mpvDomainMatch(p,x));if(d){components.pathway=30;reasons.push(`Subjek MPV selari: ${SUBJECT_BY_CODE[p.mpvCode]?.name||p.mpvSubject}`)}}
  const academicDomain=domains.find(x=>subjectDomainHits(p,x).length);if(academicDomain){const hits=subjectDomainHits(p,academicDomain);components.academic=Math.min(20,10+hits.length*5);reasons.push(`Subjek berkaitan dikesan: ${hits.slice(0,2).map(x=>x.name).join(', ')}`)}
@@ -1602,7 +1647,7 @@ function fitCourse(c,p,eligibility){
 function rankedEligibility(c,p,{record=true}={}){const e=evaluateAudited(c,p,{record}),fit=fitCourse(c,p,e);return {...e,fit}}
 function rankEligibilityResults(rows){const order={PASS:3,MANUAL:2,FAIL:1};return rows.sort((a,b)=>order[b.status]-order[a.status]||(b.fit?.score||0)-(a.fit?.score||0)||(b.score||0)-(a.score||0)||a.c.name.localeCompare(b.c.name))}
 function fitExportFor(rows,p){return {schemaVersion:FIT_ENGINE_VERSION,engineVersion:ENGINE_VERSION,generatedAt:new Date().toISOString(),profileFingerprint:profileFingerprint(p),preferences:{careerInterest:p.careerInterest||'',state:p.state||'',strictState:!!p.strictState},results:rows.map((x,i)=>({rank:i+1,sourceId:x.c.sourceId,course:x.c.name,status:x.status,path:x.path||null,fit:x.fit,auditId:x.audit?.auditId||null,ruleVersion:x.audit?.registry?.version||null}))}}
-window.TVETMATCH_FIT={version:FIT_ENGINE_VERSION,domains:FIT_DOMAIN_META,courseDomains,score:fitCourse,rank:rankEligibilityResults,export:fitExportFor};
+window.TVETMATCH_FIT={version:FIT_ENGINE_VERSION,domains:FIT_DOMAIN_META,courseDomains,resolveInterestDomains,interestCourseMatch,score:fitCourse,rank:rankEligibilityResults,export:fitExportFor};
 
 /* v18 Progression Engine (retained in v19): shows credential ladder and possible higher-level programs. It never grants progression eligibility. */
 const PROGRESSION_ENGINE_VERSION='progression-1.0';
@@ -2287,7 +2332,7 @@ function match(){
  document.getElementById('resultIntro').textContent=`${out.length} program TVET kerajaan disemak dalam skop ${activePublicFilterLabel()}.`;
  document.getElementById('okCount').textContent=pass;
  const extras=[];if(route==='spm')extras.push(`Kepujian SPM: ${p.spmCredits}`);if(route==='pvma')extras.push(`SKM 2: ${p.skmCode}`,`Kepujian SPM: ${p.spmCredits}`,`Kepujian MPAK: ${p.mpakCredits}`);if(route==='skm2')extras.push(`SKM 2: ${p.skmCode}`);if(route==='skm3')extras.push(`SKM 3: ${p.skm3Code}`);if(route==='mpv')extras.push(`MPV: ${p.mpvSubject}`);if(route==='nospm')extras.push(`Sekolah terakhir: ${p.schoolLevel===5?'Tingkatan 5':p.schoolLevel===3?'Tingkatan 3':'Tiada / bawah Tingkatan 3'}`);
- document.getElementById('summary').innerHTML=`<span class="tag">Laluan: ${routeName()}</span><span class="tag">Sektor: Awam</span><span class="tag">Institusi: ${activePublicFilterLabel()}</span><span class="tag">Negeri: ${p.state?(p.strictState?'Had: ':'Keutamaan: ')+p.state:'Semua'}</span>${p.careerInterest?`<span class="tag">Minat: ${FIT_DOMAIN_META[p.careerInterest]?.label||p.careerInterest}</span>`:''}${extras.map(x=>`<span class="tag">${x}</span>`).join('')}<span class="tag">${pass} Lulus</span><span class="tag">${manual} Perlu Semak</span><span class="tag">${near} Hampir Layak</span>`;
+ document.getElementById('summary').innerHTML=`<span class="tag">Laluan: ${routeName()}</span><span class="tag">Sektor: Awam</span><span class="tag">Institusi: ${activePublicFilterLabel()}</span><span class="tag">Negeri: ${p.state?(p.strictState?'Had: ':'Keutamaan: ')+p.state:'Semua'}</span>${p.careerInterest?`<span class="tag">Minat: ${interestDisplayLabel(p.careerInterest)}</span>`:''}${extras.map(x=>`<span class="tag">${x}</span>`).join('')}<span class="tag">${pass} Lulus</span><span class="tag">${manual} Perlu Semak</span><span class="tag">${near} Hampir Layak</span>`;
  const gs=gapSummaryHtml(out,p);gapSummary.innerHTML=gs;gapSummary.classList.toggle('show',!!gs);
  document.getElementById('results').innerHTML=out.length?out.map((x,i)=>{
    const c=x.c,state=x.decisionState||v95DecisionState(x);
@@ -4629,6 +4674,34 @@ window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v113
   }
   window.TVETMATCH_V117_KPK={version:'v117',count:8,audit};
   window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const q=audit();console.log('v117 KPK BATCH 1',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v117 KPK audit error',e)}},0));
+})();
+</script>
+
+<style id="v118-interest-search-style">
+/* v118 — Bidang Minat searchable + free text. Eligibility rules are unchanged. */
+#careerInterest{width:100%;height:52px;padding:10px 13px;border:1px solid #aeb2b3;border-radius:12px;background:#fff;color:var(--ink);outline:none}
+#careerInterest:focus{border-color:var(--navy);box-shadow:inset 0 -3px 0 var(--accent),0 0 0 3px rgba(240,163,0,.10)}
+#careerInterest::placeholder{color:#8a949c}
+.interest-field .mini b{color:var(--navy)}
+@media(max-width:820px){#careerInterest{min-height:52px;font-size:16px}}
+</style>
+<script id="v118-interest-search-audit">
+(()=>{
+  function audit(){
+    const rows=[];const add=(name,pass,detail='')=>rows.push({name,pass:!!pass,detail});
+    const input=document.getElementById('careerInterest'),list=document.getElementById('careerInterestList');
+    add('Medan minat boleh ditaip',input?.tagName==='INPUT'&&input?.getAttribute('list')==='careerInterestList',input?.tagName||'missing');
+    add('Cadangan minat diperluas',!!list&&list.options.length>=20,list?.options.length||0);
+    const plane=(courses||[]).find(c=>fitNorm(c.name).includes('PESAWAT'));
+    const computer=(courses||[]).find(c=>fitNorm(c.name).includes('KOMPUTER'));
+    add('Carian bebas pesawat berfungsi',!plane||interestCourseMatch(plane,'pesawat')?.score>0,plane?.name||'tiada kursus pesawat dalam dataset');
+    add('Carian bebas komputer berfungsi',!computer||interestCourseMatch(computer,'komputer')?.score>0,computer?.name||'tiada kursus komputer dalam dataset');
+    const weld=(courses||[]).find(c=>courseDomains(c).includes('WELDING'));
+    add('Kod minat lama masih serasi',!weld||interestCourseMatch(weld,'WELDING')?.score>0,weld?.name||'tiada kursus kimpalan');
+    const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed};
+  }
+  window.TVETMATCH_V118_INTEREST={version:'v118',audit};
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const q=audit();console.log('v118 SEARCHABLE INTEREST',q.pass?'PASS':'CHECK',q)}catch(e){console.warn('v118 interest audit error',e)}},0));
 })();
 </script>
 

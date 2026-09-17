@@ -402,7 +402,7 @@ button,a,summary,input,select{ -webkit-tap-highlight-color: rgba(0,0,0,.08); }
             <div>
               <label for="institutionFocus">Saya mahu semak institusi</label>
               <select id="institutionFocus"><option value="ALL">Semua Institusi TVET Kerajaan</option></select>
-              <div class="filter-count" id="institutionFocusCount">Contoh: TVETMARA, ADTEC, GIATMARA, KPKM, KPK, IKTBN, IKBN</div>
+              <div class="filter-count" id="institutionFocusCount">Pilihan institusi / rangkaian akan dipaparkan mengikut katalog aktif semasa.</div>
             </div>
           </div>
           <details class="advanced-details" id="institutionAdvancedDetails">
@@ -617,7 +617,7 @@ button,a,summary,input,select{ -webkit-tap-highlight-color: rgba(0,0,0,.08); }
           <button class="btn secondary" id="resetBtn">Kosongkan</button>
         </div>
         <div id="adaptivePanel" class="adaptive-panel"></div>
-        <div class="notice"><strong>Peringatan:</strong> TVETMatch ialah alat semakan kelayakan awal, bukan sistem permohonan. Syarat rasmi semasa institusi dan portal TVET kekal sebagai rujukan akhir.</div>
+        <div class="notice"><strong>Peringatan:</strong> TVETMatch ialah alat semakan kelayakan awal, bukan sistem permohonan. Pangkalan data semasa mengandungi <strong><span id="catalogCoverageCount">337</span> program yang telah diaudit</strong>. Audit data ini dikunci setakat <strong>17 September 2026</strong>; UPTVET kini sudah memaparkan katalog <strong>Ambilan 1/2027</strong>, jadi program baharu atau program yang berubah selepas audit mungkin belum muncul di TVETMatch. Jika program atau institusi tidak muncul, semak terus <a href="https://mohon.tvet.gov.my/awam-kursus/katalog" target="_blank" rel="noopener noreferrer"><strong>katalog rasmi UPTVET</strong></a>. Syarat rasmi semasa institusi dan portal TVET kekal sebagai rujukan akhir.</div>
       </div>
     </section>
   </div>
@@ -781,7 +781,9 @@ button,a,summary,input,select{ -webkit-tap-highlight-color: rgba(0,0,0,.08); }
 
 </main>
 
-<div class="footer-note"><strong>TVETMatch v111:</strong> Release Lock. Versi keluaran dikunci selepas Final User Flow v110; elemen diagnostik dan sejarah pembangunan disembunyikan daripada pengguna biasa tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v110:</strong> Final User Flow Test. Aliran pengguna dari pilihan laluan, input SPM/autocomplete, Fokus Institusi, Semak Kelayakan, Soalan Susulan, hasil keputusan, Ubah Maklumat dan Semak Semula kini diaudit sebagai release flow tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v109:</strong> Final Visual Consistency Polish. Hierarki visual, spacing, radius, input, butang, kad keputusan dan komponen tindakan diseragamkan tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v108:</strong> Mobile & Touch Polish. Paparan telefon/iPad dikemaskan tanpa mengubah enjin kelayakan: sasaran sentuhan dibesarkan, susun atur keputusan menjadi satu kolum, butang tindakan memenuhi lebar skrin dan teks input kekal selesa dibaca.<br><br><strong>TVETMatch v107:</strong> Recheck Flow Polish. Hasil semakan kini menyediakan tindakan Ubah Maklumat dan Semak Semula yang mengekalkan semua input sedia ada; pengguna boleh kembali ke borang, ubah satu perkara dan jalankan semakan semula tanpa mengosongkan profil.<br><br><strong>TVETMatch v106:</strong> Next Step Guidance Polish. Selepas keputusan diringkaskan, TVETMatch kini memaparkan tindakan seterusnya yang paling relevan — lihat program layak, lengkapkan maklumat, semak program hampir layak atau semak semula penapis — tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v105:</strong> Results Summary Polish. Ringkasan keputusan di bahagian atas kini menunjukkan jumlah LAYAK, PERLU TINDAKAN, HAMPIR LAYAK dan BELUM LAYAK secara terus tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v104:</strong> Result Card Clarity Polish. Kad keputusan kini memfokuskan nama program, institusi, status dan maklumat penting; sebab terperinci dipindahkan ke panel boleh buka/tutup tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v103:</strong> Results Prioritization Polish. Keputusan LAYAK dipaparkan dahulu, diikuti program yang perlukan tindakan dan program Hampir Layak; baki TIDAK LAYAK diringkaskan dalam bahagian tertutup supaya paparan tidak terlalu sarat.<br><br><strong>TVETMatch v102:</strong> SPM Input + Soalan Susulan Polish. Input SPM kini mempunyai ringkasan kelengkapan dan pintasan subjek lazim termasuk Pendidikan Islam; Soalan Susulan disorok pada permulaan dan hanya ditawarkan selepas semakan apabila enjin benar-benar menemui maklumat yang belum diketahui.<br><br><strong>TVETMatch v101:</strong> UI/UX Polish 1. Paparan dipermudah kepada aliran semakan: pilihan laluan melalui dropdown utama, tindakan Semak Kelayakan, Soalan Susulan hanya jika perlu, hasil keputusan menggunakan empat state pengguna (LAYAK / LENGKAPKAN / SEMAK / TIDAK LAYAK), dan badge teknikal audit disembunyikan daripada paparan pengguna tanpa mengubah enjin baseline v100.<br><br><strong>TVETMatch v100:</strong> Baseline Final. Logik dan data stabil v99 dikunci sebagai baseline sebelum kemasan UI/UX. Baseline gate mewajibkan pre-final v99 lulus, Active REVIEW kekal 0, semua enam laluan utama tersedia, Pendidikan Islam [1223] kekal dalam katalog, Fokus Institusi berfungsi, dan semua keputusan enjin hanya berada dalam empat state rasmi: ELIGIBLE / NOT_ELIGIBLE / INPUT_REQUIRED / VERIFICATION_REQUIRED.<br><br><strong>TVETMatch v99:</strong> Pre-Final Release Gate. Semua hardening v91-v98 digabungkan dalam satu gate: completion integrity, Fokus Institusi, decision-state contract, must-key coverage, tri-state syarat khas dan audit fidelity. Semua profileFlag wajib mengembalikan MANUAL apabila belum ditanya, FAIL apabila jawapan tidak dan PASS apabila jawapan ya; release-ready hanya lulus jika tiada keputusan binari palsu daripada syarat khas yang belum dijawab.<br><br><strong>TVETMatch v98:</strong> Audit Fidelity Guard. Nilai tri-state syarat khas kini dikekalkan dalam audit dan fingerprint: BELUM DITANYA (null) tidak lagi ditukar kepada TIDAK (false). mustAudit turut merekod syarat wajib khas sebagai MANUAL/PASS/FAIL dengan tepat, supaya jejak keputusan sepadan dengan evaluator.<br><br><strong>TVETMatch v97:</strong> Special Evidence Tri-State Guard. Syarat khas yang belum pernah ditanya kini dianggap INPUT_REQUIRED, bukan automatik TIDAK LAYAK. Checkbox/select tersembunyi membezakan belum dijawab, jawapan tidak, dan jawapan ya; evaluator must/profileFlag diselaraskan untuk mengelakkan false-negative.<br><br><strong>TVETMatch v96:</strong> Mandatory Condition Guard. Syarat khas kesihatan/OKU pada peringkat must kini dinilai oleh checkMust, mengelakkan false-positive LAYAK; audit baharu memastikan setiap key must dalam dataset mempunyai evaluator yang disokong.<br><br><strong>TVETMatch v95:</strong> Decision State Contract. Semua keputusan enjin dipetakan kepada empat keadaan pengguna yang konsisten: ELIGIBLE, NOT_ELIGIBLE, INPUT_REQUIRED atau VERIFICATION_REQUIRED; matriks regression merentas enam laluan utama memastikan tiada status MANUAL tanpa kategori.<br><br><strong>TVETMatch v94:</strong> SEMAK Accuracy Audit. Status MANUAL kini dikelaskan secara dalaman kepada INPUT_REQUIRED (maklumat calon belum lengkap) atau VERIFICATION_REQUIRED (pengesahan sebenar seperti remedial, pengalaman, kesetaraan, dokumen/temuduga). Ini mengelakkan SEMAK dianggap sama dengan data belum diisi.<br><br><strong>TVETMatch v93:</strong> Functional Issue Sweep. Pepijat runtime Fokus Institusi dibetulkan: pembolehubah fItems kini berada dalam skop fungsi dan penukaran Fokus Institusi mengosongkan penapis kementerian tersembunyi supaya keputusan tidak tersekat tanpa disedari.<br><br><strong>TVETMatch v92:</strong> Final Functional Smoke Test. Tiada perubahan UI; enam laluan utama, keputusan PASS/FAIL/SEMAK, Fokus Institusi, Pendidikan Islam autocomplete dan integriti release diuji sebelum kemasan akhir.<br><br><strong>TVETMatch v91:</strong> Completion Integrity Audit. Tiada perubahan UI; audit menggabungkan release gate, simple-check gate, 0 active REVIEW, uniqueness sourceId, semua laluan utama, Pendidikan Islam, Fokus Institusi dan skop TVET awam sebelum kemasan akhir.<br><br><strong>TVETMatch v90:</strong> Semakan Ringkas. Paparan utama kini hanya meminta maklumat asas dan keputusan kelayakan; syarat khas kursus dipindahkan ke bahagian tertutup dan hanya perlu dibuka jika TVETMatch meminta. Fokus Institusi juga diringkaskan kepada satu dropdown utama, manakala penapis kementerian/kampus diletakkan sebagai pilihan lanjutan.<br><br><strong>TVETMatch v89:</strong> UI Restoration + Functional Guard. Fokus Institusi dipulihkan sebagai dropdown terus (TVETMARA, ADTEC, GIATMARA, IKTBN, IKBN dan rangkaian awam lain mengikut data), pilihan Kelayakan/Laluan Utama dipulihkan sebagai dropdown dengan SPM sebagai default, butang laluan kekal disegerakkan, dan label SKM Tahap 3 diperbetulkan.<br><br><strong>TVETMatch v88:</strong> Release Candidate Hardening. Final QA kini membezakan rule MANUAL yang sah (contohnya remedial, pengalaman kerja atau bukti tambahan) daripada rule manual yang tidak terklasifikasi; release-ready hanya lulus jika tiada REVIEW, tiada duplicate sourceId, schema/registry bersih, Pendidikan Islam + autocomplete SPM tersedia dan tiada manual rule yang mencurigakan.<br><br><strong>TVETMatch v87:</strong> Final QA Gate. Active REVIEW Queue mesti kosong; dataset, duplicate sourceId, manual-rule inventory, SPM autocomplete/Pendidikan Islam dan registry binding diaudit sebelum status release-ready.<br><br><strong>TVETMatch v86:</strong> GIATMARA Welding Metadata Cleanup. Rekod 12134 Kinabatangan dan 14039 Kubang Pasu dinaik taraf kepada VERIFIED menggunakan kriteria utama berstruktur portal rasmi; percanggahan teks Lain-lain Maklumat tentang SKM Tahap 2/6 bulan dikekalkan sebagai nota konflik sumber, bukan digunakan untuk menukar syarat utama.<br><br><strong>TVETMatch v85:</strong> TVETMARA Jasin Industrial Maintenance cleanup. Rekod 13499 dinaik taraf kepada VERIFIED berdasarkan syarat rasmi terperinci; konflik tajuk Diploma/36 bulan dengan medan Tahap Pengajian Sijil Tahap 3 direkod sebagai ralat metadata sumber.<br><br><strong>TVETMatch v84:</strong> JTM legacy REVIEW cleanup. Sijil Teknologi Polimer 7138 dan Sijil Teknologi Fabrikasi Struktur Logam Minyak dan Gas 30462 kini VERIFIED berdasarkan struktur syarat rasmi semasa; konflik lama 3M/tiada pendidikan formal telah diselesaikan tanpa meneka.<br><br><strong>TVETMatch v82:</strong> Runtime Integrity Hotfix. Rule DSL profileFlag kini ditakrifkan secara eksplisit sebelum final sync supaya semua kursus yang menggunakan bukti profil (surat tamat latihan, sijil profesional, PBD, syarat OKU, temuduga dan bukti khas lain) boleh dikompil dan dimuat ke enjin, bukan ditolak semasa import.<br><br><strong>TVETMatch v81:</strong> Rekod gas MARA lama 13556 diganti dengan rekod rasmi semasa 37014.<br><br><strong>TVETMatch v80:</strong> MARA Evidence Engine Cleanup untuk sijil profesional/kompetensi dan PBD Tingkatan 3.<br><br><strong>TVETMatch v79:</strong> IKTBN Pagoh CAD/CAM cleanup. Rekod 45259 dinaik taraf kepada VERIFIED dengan dua laluan rasmi: SKM Tahap 3 berkaitan atau Sijil Tahap 3 Pembuatan CAD/CAM dari IKTBN Pagoh.<br><br><strong>TVETMatch v78:</strong> KBS SKM3 + Sijil Institusi Cleanup. Empat rekod lama KBS kini menggunakan laluan SKM Tahap 3 dan alternatif sijil dalaman IKTBN/KBS yang dinyatakan oleh kursus, dengan final-sync registry selepas override.<br><br><strong>TVETMatch v77:</strong> TVETMARA Balik Pulau Diploma Teknologi Pembuatan 14003 cleanup. Laluan SPM dan kod SKM bercampur Tahap 2/Tahap 3 pada portal rasmi kini dipisahkan secara struktur tanpa meneka; rekod dinaik taraf kepada VERIFIED.<br><br><strong>TVETMatch v76:</strong> ADTEC Shah Alam Diploma Teknologi Pengeluaran Automotif 10049 cleanup. Rekod kini VERIFIED berdasarkan syarat rasmi semasa: BM/Sejarah minimum E, Matematik atau Matematik Tambahan minimum E, satu subjek lain minimum E, umur 17-35, warganegara, sihat dan tiada masalah rabun warna; tempoh 36 bulan.<br><br><strong>TVETMatch v75:</strong> GIATMARA Batu Teknologi Motosikal Kuasa Tinggi 30757 cleanup. Syarat wajib SKM Tahap 2 kini dimodelkan sebagai pemilikan SKM2 generik kerana portal rasmi menyatakan tiada butiran kelayakan/kod ditetapkan; rekod dinaik taraf kepada VERIFIED.<br><br><strong>TVETMatch v74:</strong> GIATMARA Kota Bharu PW4 cleanup. Rekod 12173 dinaik taraf kepada VERIFIED menggunakan medan struktur utama portal rasmi: SKM Tahap 3, umur 15-70, sihat, warganegara, Bumiputera, pendidikan tiada formal/minat+membaca/menulis ATAU Matematik minimum D, tempoh 12 bulan. Konflik Lain-lain Maklumat (SKM Tahap 2 / 6 bulan) direkod sebagai nota sumber.<br><br><strong>TVETMatch v73:</strong> ADTEC Kuantan 30555 cleanup. Sijil Teknologi Penyelenggaraan Mekanikal kini VERIFIED berdasarkan syarat rasmi semasa termasuk umur 17-35, warganegara, syarat kesihatan/OKU khusus kerja amali, laluan Tamat Tingkatan 5 dengan BM/Sejarah minimum G, serta laluan alternatif 3M. Final-sync dikekalkan.<br><br><strong>TVETMatch v72:</strong> GIATMARA Serdang level cleanup. Rekod 31210 dinaik taraf kepada VERIFIED; Tahap Pengajian rasmi ialah SKM Tahap 3 dan teks Sijil Kemahiran Malaysia Tahap 23 di bahagian Lain-lain Maklumat direkod sebagai ralat paparan sumber.<br><br><strong>TVETMatch v71:</strong> GIATMARA Hulu Terengganu PW2 cleanup. Rekod 35430 dinaik taraf kepada VERIFIED; tempoh latihan dikunci 24 bulan berdasarkan bahagian Lain-lain Maklumat rasmi, sambil merekodkan konflik medan utama portal yang masih memaparkan 24 Jam.<br><br><strong>TVETMatch v70:</strong> TVETMARA Kuching Teknousahawan Elektrik Cleanup. Kursus 49589 kini dimodelkan secara berstruktur termasuk PW4, status PW4 tidak didaftarkan dengan syarikat, sijil bidang berkaitan / usahawan elektrik bawah 5 tahun, ujian kecenderungan dan temuduga. Final override sync v69 dikekalkan.<br><br><strong>Asas v69:</strong> Final Override Sync + SPM Subject Autocomplete + KBS Dusun Tua Cleanup. Semua override v63-v69 kini dikompil semula ke enjin padanan dan registry selepas perubahan data, mengelakkan rule lama kekal aktif. Subjek elektif SPM kini boleh ditaip dan dipilih melalui suggestion dropdown. Kursus IKTBN Dusun Tua 14618 dinaik taraf kepada VERIFIED berdasarkan syarat rasmi semasa termasuk status bujang.<br><br><strong>Asas v68:</strong> GIATMARA Bukit Gelugor 11756 dinaik taraf kepada VERIFIED. Active REVIEW Queue kekal untuk batch seterusnya.<br><br><strong>Nota:</strong> penapis TVET Awam kekal aktif: tiada swasta, Politeknik atau Kolej Komuniti.</div>
+<div class="footer-note"><strong>TVETMatch v134:</strong> Deploy Final Polish. Tiada perubahan pada rule kelayakan atau dataset v133. Teks bantuan Fokus Institusi dijadikan dinamik/future-proof selepas semua rekod KPK legacy disahkan retired, dan angka awal liputan diselaraskan kepada 337 program aktif; nilai sebenar tetap dikira semula daripada DEFAULT_DATASET ketika runtime. Release gate production dinaikkan kepada v134.<br><br><strong>TVETMatch v133:</strong> KPK + KPKM Current Offering Cleanup. Audit portal rasmi TVET MADANI pada 17 September 2026 mengesahkan baki lima sourceId KPK yang masih aktif dalam fail sebagai kursus yang tidak lagi ditawarkan: 31474, 31480, 31483, 31489 dan 31492. Bersama 31477, 34067 dan 34070 yang telah dibuang sebelum ini, keseluruhan lapan sourceId KPK legacy dalam dataset kini retired. Bagi KPKM, kesemua 16 sourceId diaudit; 31441 disahkan retired manakala 15 lagi tidak memaparkan notis retired dan dikekalkan. Rekod retired baharu dibuang daripada katalog aktif dan dimasukkan ke retired guard.<br><br><strong>TVETMatch v132:</strong> GIATMARA Current Offering Cleanup Final. Audit menyeluruh portal rasmi TVET MADANI pada 17 September 2026 meliputi semua 74 sourceId GIATMARA yang berada dalam fail. Lapan sourceId tambahan disahkan sebagai kursus yang tidak lagi ditawarkan dan dibuang daripada katalog aktif: 14075, 14027, 11528, 12932, 12470, 12725, 14039, 33743. Digabungkan dengan tujuh rekod GIATMARA retired yang telah dibuang pada v128, audit current-offering GIATMARA kini meliputi keseluruhan set sourceId sedia ada; rekod tanpa bukti retired dikekalkan.<br><br><strong>TVETMatch v131:</strong> JTM Current Offering Final Cleanup. Audit portal rasmi TVET MADANI pada 17 September 2026 mengesahkan dua lagi sourceId JTM sebagai kursus yang tidak lagi ditawarkan: 34499 (Sijil Teknologi Instrumen Perindustrian, Pasir Gudang) dan 44059 (Sijil Teknologi Minyak dan Gas — Mekanikal Plant Downstream, Labuan). Rekod ini dibuang daripada katalog aktif dan dimasukkan ke retired guard. SourceId 35984, 36761, 39071 dan 48401 disemak semula dan tidak memaparkan notis retired; 50984 dikekalkan kerana status semasa tidak dapat disahkan dengan cukup stabil daripada portal rasmi.<br><br><strong>TVETMatch v130:</strong> JTM Current Offering Cleanup Batch 2-4. Audit portal rasmi TVET MADANI pada 17 September 2026 mengesahkan 19 sourceId JTM tambahan sebagai kursus yang tidak lagi ditawarkan: 7213, 7219, 7909, 8056, 8972, 9908, 10022, 10049, 10097, 10790, 10970, 10982, 11087, 11159, 30450, 30462, 30546, 30555, 30574. Semua rekod ini dikeluarkan daripada katalog aktif dan dimasukkan ke retired guard production; rekod yang tidak memaparkan notis retired dalam batch sama dikekalkan.<br><br><strong>TVETMatch v129:</strong> JTM Current Offering Cleanup Batch 1. Audit portal rasmi TVET MADANI pada 17 September 2026 mengesahkan sourceId 7075, 7084, 7138, 7183, 7195 dan 7210 sebagai kursus yang tidak lagi ditawarkan; semua rekod tersebut dikeluarkan daripada katalog aktif dan retired guard release. SourceId 7066, 7111 dan 7204 tidak memaparkan notis retired dalam semakan batch ini.<br><br><strong>TVETMatch v128:</strong> GIATMARA Current Offering Cleanup Batch 1. Audit portal rasmi TVET MADANI pada 17 September 2026 mengesahkan sourceId 11486, 11507, 11705, 11960, 12173, 12353 dan 12536 sebagai kursus yang tidak lagi ditawarkan; semua rekod tersebut dikeluarkan daripada katalog aktif dan dimasukkan ke retired guard release. Audit diteruskan secara batch supaya hanya rekod yang disahkan portal rasmi dibuang.<br><br><strong>TVETMatch v127:</strong> KBS Current Offering Cleanup. Audit semasa 17 September 2026 terhadap semua 22 sourceId KBS dalam katalog mendapati 18 ditanda portal rasmi sebagai tidak lagi ditawarkan; rekod tersebut dikeluarkan daripada katalog aktif. Release gate tidak lagi mengunci jumlah program kepada angka 403 supaya pembersihan program retired tidak dianggap kegagalan. Empat sourceId KBS yang tidak menunjukkan notis retired dalam semakan ini ialah 39382, 43821, 45259 dan 45271.<br><br><strong>TVETMatch v126:</strong> Coverage & Campus Filter Hardening. Nama kampus ADTEC JTM dinormalkan pada lapisan penapis tanpa mengubah data asal supaya variasi huruf/label ILP tidak menghasilkan pilihan kampus berganda. Notis liputan kini menyatakan tarikh audit 17 September 2026 dan menjelaskan bahawa katalog rasmi UPTVET Ambilan 1/2027 mungkin mengandungi program baharu/perubahan yang belum diaudit TVETMatch.<br><br><strong>TVETMatch v125:</strong> Deploy-Ready Production Build. Enjin VERIFIED v124 dikekalkan; full historical self-test dan auto QA diagnostik tidak lagi dijalankan pada setiap page load. Notis liputan katalog diperkemas supaya ketiadaan program tidak ditafsir sebagai tidak wujud/tidak layak. Deploy gate baharu menyemak runtime/data/registry/source/route/subject dan status retired sebelum release.<br><br><strong>TVETMatch v124:</strong> Runtime Review Cleanup. Kod subjek SPM 8201 Prinsip Elektrik dan Elektronik ditambah; rekod 30450, 33644 dan 14039 distruktur semula daripada syarat rasmi semasa tanpa manual debt; tiga kursus yang portal rasmi tandakan tidak lagi ditawarkan (31477, 34067, 34070) dikeluarkan daripada katalog aktif. Final gate kini mensasarkan 0 REVIEW, 0 REJECT, 0 duplicate dan kesamaan DEFAULT/RAW/runtime.<br><br><strong>TVETMatch v123:</strong> JTM Kota Samarahan Catalogue Expansion. Tujuh program Sijil Penuh ADTEC JTM Kampus Kota Samarahan ditambah daripada katalog rasmi TVET MADANI semasa, lengkap dengan sourceId, kod NOSS, tempoh 27 bulan dan syarat kelayakan rasmi. Semua rekod baharu ditetapkan VERIFIED, registry disegerakkan semula; allow-list sumber rasmi TVETMARA dan pemetaan trek TVET Tahfiz turut dibaiki supaya 186 rekod MARA canonical benar-benar kekal dalam runtime, bukan hanya dalam DEFAULT_DATASET.<br><br><strong>TVETMatch v122:</strong> TVETMARA 2026 Canonical Lock. Semua rekod MARA runtime dikunci kepada katalog canonical Edisi BKT 1.1/2026: 28 rekod kampus Sijil + 158 rekod kampus/laluan Diploma. Rekod MARA legacy/noncanonical dan duplicate semantic/sourceId dibuang sebelum final registry sync; GIATMARA dan agensi awam lain tidak disentuh.<br><br><strong>TVETMatch v121:</strong> TVETMARA Special Condition Hardening. Umur minimum 18 tahun, syarat temuduga/portfolio, BMI/asma, TVET Tahfiz, pengalaman Teknousahawan dan Perakuan ST A1/PW2/PW4 diselaraskan supaya syarat khas boleh dijawab melalui aliran semakan tanpa menghasilkan LAYAK palsu.<br><br><strong>TVETMatch v119:</strong> TVETMARA 2026 Canonical Certificate Refresh. Katalog Sijil MARA diselaraskan dengan TVETMARA Edisi BKT 1.1/2026: 16 program, 28 rekod kampus, syarat SPM/SKM/PBD/profesional dikemas kini dan ambang lama yang tidak disokong buku 2026 dibuang.<br><br><strong>TVETMatch v111:</strong> Release Lock. Versi keluaran dikunci selepas Final User Flow v110; elemen diagnostik dan sejarah pembangunan disembunyikan daripada pengguna biasa tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v110:</strong> Final User Flow Test. Aliran pengguna dari pilihan laluan, input SPM/autocomplete, Fokus Institusi, Semak Kelayakan, Soalan Susulan, hasil keputusan, Ubah Maklumat dan Semak Semula kini diaudit sebagai release flow tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v109:</strong> Final Visual Consistency Polish. Hierarki visual, spacing, radius, input, butang, kad keputusan dan komponen tindakan diseragamkan tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v108:</strong> Mobile & Touch Polish. Paparan telefon/iPad dikemaskan tanpa mengubah enjin kelayakan: sasaran sentuhan dibesarkan, susun atur keputusan menjadi satu kolum, butang tindakan memenuhi lebar skrin dan teks input kekal selesa dibaca.<br><br><strong>TVETMatch v107:</strong> Recheck Flow Polish. Hasil semakan kini menyediakan tindakan Ubah Maklumat dan Semak Semula yang mengekalkan semua input sedia ada; pengguna boleh kembali ke borang, ubah satu perkara dan jalankan semakan semula tanpa mengosongkan profil.<br><br><strong>TVETMatch v106:</strong> Next Step Guidance Polish. Selepas keputusan diringkaskan, TVETMatch kini memaparkan tindakan seterusnya yang paling relevan — lihat program layak, lengkapkan maklumat, semak program hampir layak atau semak semula penapis — tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v105:</strong> Results Summary Polish. Ringkasan keputusan di bahagian atas kini menunjukkan jumlah LAYAK, PERLU TINDAKAN, HAMPIR LAYAK dan BELUM LAYAK secara terus tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v104:</strong> Result Card Clarity Polish. Kad keputusan kini memfokuskan nama program, institusi, status dan maklumat penting; sebab terperinci dipindahkan ke panel boleh buka/tutup tanpa mengubah enjin kelayakan.<br><br><strong>TVETMatch v103:</strong> Results Prioritization Polish. Keputusan LAYAK dipaparkan dahulu, diikuti program yang perlukan tindakan dan program Hampir Layak; baki TIDAK LAYAK diringkaskan dalam bahagian tertutup supaya paparan tidak terlalu sarat.<br><br><strong>TVETMatch v102:</strong> SPM Input + Soalan Susulan Polish. Input SPM kini mempunyai ringkasan kelengkapan dan pintasan subjek lazim termasuk Pendidikan Islam; Soalan Susulan disorok pada permulaan dan hanya ditawarkan selepas semakan apabila enjin benar-benar menemui maklumat yang belum diketahui.<br><br><strong>TVETMatch v101:</strong> UI/UX Polish 1. Paparan dipermudah kepada aliran semakan: pilihan laluan melalui dropdown utama, tindakan Semak Kelayakan, Soalan Susulan hanya jika perlu, hasil keputusan menggunakan empat state pengguna (LAYAK / LENGKAPKAN / SEMAK / TIDAK LAYAK), dan badge teknikal audit disembunyikan daripada paparan pengguna tanpa mengubah enjin baseline v100.<br><br><strong>TVETMatch v100:</strong> Baseline Final. Logik dan data stabil v99 dikunci sebagai baseline sebelum kemasan UI/UX. Baseline gate mewajibkan pre-final v99 lulus, Active REVIEW kekal 0, semua enam laluan utama tersedia, Pendidikan Islam [1223] kekal dalam katalog, Fokus Institusi berfungsi, dan semua keputusan enjin hanya berada dalam empat state rasmi: ELIGIBLE / NOT_ELIGIBLE / INPUT_REQUIRED / VERIFICATION_REQUIRED.<br><br><strong>TVETMatch v99:</strong> Pre-Final Release Gate. Semua hardening v91-v98 digabungkan dalam satu gate: completion integrity, Fokus Institusi, decision-state contract, must-key coverage, tri-state syarat khas dan audit fidelity. Semua profileFlag wajib mengembalikan MANUAL apabila belum ditanya, FAIL apabila jawapan tidak dan PASS apabila jawapan ya; release-ready hanya lulus jika tiada keputusan binari palsu daripada syarat khas yang belum dijawab.<br><br><strong>TVETMatch v98:</strong> Audit Fidelity Guard. Nilai tri-state syarat khas kini dikekalkan dalam audit dan fingerprint: BELUM DITANYA (null) tidak lagi ditukar kepada TIDAK (false). mustAudit turut merekod syarat wajib khas sebagai MANUAL/PASS/FAIL dengan tepat, supaya jejak keputusan sepadan dengan evaluator.<br><br><strong>TVETMatch v97:</strong> Special Evidence Tri-State Guard. Syarat khas yang belum pernah ditanya kini dianggap INPUT_REQUIRED, bukan automatik TIDAK LAYAK. Checkbox/select tersembunyi membezakan belum dijawab, jawapan tidak, dan jawapan ya; evaluator must/profileFlag diselaraskan untuk mengelakkan false-negative.<br><br><strong>TVETMatch v96:</strong> Mandatory Condition Guard. Syarat khas kesihatan/OKU pada peringkat must kini dinilai oleh checkMust, mengelakkan false-positive LAYAK; audit baharu memastikan setiap key must dalam dataset mempunyai evaluator yang disokong.<br><br><strong>TVETMatch v95:</strong> Decision State Contract. Semua keputusan enjin dipetakan kepada empat keadaan pengguna yang konsisten: ELIGIBLE, NOT_ELIGIBLE, INPUT_REQUIRED atau VERIFICATION_REQUIRED; matriks regression merentas enam laluan utama memastikan tiada status MANUAL tanpa kategori.<br><br><strong>TVETMatch v94:</strong> SEMAK Accuracy Audit. Status MANUAL kini dikelaskan secara dalaman kepada INPUT_REQUIRED (maklumat calon belum lengkap) atau VERIFICATION_REQUIRED (pengesahan sebenar seperti remedial, pengalaman, kesetaraan, dokumen/temuduga). Ini mengelakkan SEMAK dianggap sama dengan data belum diisi.<br><br><strong>TVETMatch v93:</strong> Functional Issue Sweep. Pepijat runtime Fokus Institusi dibetulkan: pembolehubah fItems kini berada dalam skop fungsi dan penukaran Fokus Institusi mengosongkan penapis kementerian tersembunyi supaya keputusan tidak tersekat tanpa disedari.<br><br><strong>TVETMatch v92:</strong> Final Functional Smoke Test. Tiada perubahan UI; enam laluan utama, keputusan PASS/FAIL/SEMAK, Fokus Institusi, Pendidikan Islam autocomplete dan integriti release diuji sebelum kemasan akhir.<br><br><strong>TVETMatch v91:</strong> Completion Integrity Audit. Tiada perubahan UI; audit menggabungkan release gate, simple-check gate, 0 active REVIEW, uniqueness sourceId, semua laluan utama, Pendidikan Islam, Fokus Institusi dan skop TVET awam sebelum kemasan akhir.<br><br><strong>TVETMatch v90:</strong> Semakan Ringkas. Paparan utama kini hanya meminta maklumat asas dan keputusan kelayakan; syarat khas kursus dipindahkan ke bahagian tertutup dan hanya perlu dibuka jika TVETMatch meminta. Fokus Institusi juga diringkaskan kepada satu dropdown utama, manakala penapis kementerian/kampus diletakkan sebagai pilihan lanjutan.<br><br><strong>TVETMatch v89:</strong> UI Restoration + Functional Guard. Fokus Institusi dipulihkan sebagai dropdown terus (TVETMARA, ADTEC, GIATMARA, IKTBN, IKBN dan rangkaian awam lain mengikut data), pilihan Kelayakan/Laluan Utama dipulihkan sebagai dropdown dengan SPM sebagai default, butang laluan kekal disegerakkan, dan label SKM Tahap 3 diperbetulkan.<br><br><strong>TVETMatch v88:</strong> Release Candidate Hardening. Final QA kini membezakan rule MANUAL yang sah (contohnya remedial, pengalaman kerja atau bukti tambahan) daripada rule manual yang tidak terklasifikasi; release-ready hanya lulus jika tiada REVIEW, tiada duplicate sourceId, schema/registry bersih, Pendidikan Islam + autocomplete SPM tersedia dan tiada manual rule yang mencurigakan.<br><br><strong>TVETMatch v87:</strong> Final QA Gate. Active REVIEW Queue mesti kosong; dataset, duplicate sourceId, manual-rule inventory, SPM autocomplete/Pendidikan Islam dan registry binding diaudit sebelum status release-ready.<br><br><strong>TVETMatch v86:</strong> GIATMARA Welding Metadata Cleanup. Rekod 12134 Kinabatangan dan 14039 Kubang Pasu dinaik taraf kepada VERIFIED menggunakan kriteria utama berstruktur portal rasmi; percanggahan teks Lain-lain Maklumat tentang SKM Tahap 2/6 bulan dikekalkan sebagai nota konflik sumber, bukan digunakan untuk menukar syarat utama.<br><br><strong>TVETMatch v85:</strong> TVETMARA Jasin Industrial Maintenance cleanup. Rekod 13499 dinaik taraf kepada VERIFIED berdasarkan syarat rasmi terperinci; konflik tajuk Diploma/36 bulan dengan medan Tahap Pengajian Sijil Tahap 3 direkod sebagai ralat metadata sumber.<br><br><strong>TVETMatch v84:</strong> JTM legacy REVIEW cleanup. Sijil Teknologi Polimer 7138 dan Sijil Teknologi Fabrikasi Struktur Logam Minyak dan Gas 30462 kini VERIFIED berdasarkan struktur syarat rasmi semasa; konflik lama 3M/tiada pendidikan formal telah diselesaikan tanpa meneka.<br><br><strong>TVETMatch v82:</strong> Runtime Integrity Hotfix. Rule DSL profileFlag kini ditakrifkan secara eksplisit sebelum final sync supaya semua kursus yang menggunakan bukti profil (surat tamat latihan, sijil profesional, PBD, syarat OKU, temuduga dan bukti khas lain) boleh dikompil dan dimuat ke enjin, bukan ditolak semasa import.<br><br><strong>TVETMatch v81:</strong> Rekod gas MARA lama 13556 diganti dengan rekod rasmi semasa 37014.<br><br><strong>TVETMatch v80:</strong> MARA Evidence Engine Cleanup untuk sijil profesional/kompetensi dan PBD Tingkatan 3.<br><br><strong>TVETMatch v79:</strong> IKTBN Pagoh CAD/CAM cleanup. Rekod 45259 dinaik taraf kepada VERIFIED dengan dua laluan rasmi: SKM Tahap 3 berkaitan atau Sijil Tahap 3 Pembuatan CAD/CAM dari IKTBN Pagoh.<br><br><strong>TVETMatch v78:</strong> KBS SKM3 + Sijil Institusi Cleanup. Empat rekod lama KBS kini menggunakan laluan SKM Tahap 3 dan alternatif sijil dalaman IKTBN/KBS yang dinyatakan oleh kursus, dengan final-sync registry selepas override.<br><br><strong>TVETMatch v77:</strong> TVETMARA Balik Pulau Diploma Teknologi Pembuatan 14003 cleanup. Laluan SPM dan kod SKM bercampur Tahap 2/Tahap 3 pada portal rasmi kini dipisahkan secara struktur tanpa meneka; rekod dinaik taraf kepada VERIFIED.<br><br><strong>TVETMatch v76:</strong> ADTEC Shah Alam Diploma Teknologi Pengeluaran Automotif 10049 cleanup. Rekod kini VERIFIED berdasarkan syarat rasmi semasa: BM/Sejarah minimum E, Matematik atau Matematik Tambahan minimum E, satu subjek lain minimum E, umur 17-35, warganegara, sihat dan tiada masalah rabun warna; tempoh 36 bulan.<br><br><strong>TVETMatch v75:</strong> GIATMARA Batu Teknologi Motosikal Kuasa Tinggi 30757 cleanup. Syarat wajib SKM Tahap 2 kini dimodelkan sebagai pemilikan SKM2 generik kerana portal rasmi menyatakan tiada butiran kelayakan/kod ditetapkan; rekod dinaik taraf kepada VERIFIED.<br><br><strong>TVETMatch v74:</strong> GIATMARA Kota Bharu PW4 cleanup. Rekod 12173 dinaik taraf kepada VERIFIED menggunakan medan struktur utama portal rasmi: SKM Tahap 3, umur 15-70, sihat, warganegara, Bumiputera, pendidikan tiada formal/minat+membaca/menulis ATAU Matematik minimum D, tempoh 12 bulan. Konflik Lain-lain Maklumat (SKM Tahap 2 / 6 bulan) direkod sebagai nota sumber.<br><br><strong>TVETMatch v73:</strong> ADTEC Kuantan 30555 cleanup. Sijil Teknologi Penyelenggaraan Mekanikal kini VERIFIED berdasarkan syarat rasmi semasa termasuk umur 17-35, warganegara, syarat kesihatan/OKU khusus kerja amali, laluan Tamat Tingkatan 5 dengan BM/Sejarah minimum G, serta laluan alternatif 3M. Final-sync dikekalkan.<br><br><strong>TVETMatch v72:</strong> GIATMARA Serdang level cleanup. Rekod 31210 dinaik taraf kepada VERIFIED; Tahap Pengajian rasmi ialah SKM Tahap 3 dan teks Sijil Kemahiran Malaysia Tahap 23 di bahagian Lain-lain Maklumat direkod sebagai ralat paparan sumber.<br><br><strong>TVETMatch v71:</strong> GIATMARA Hulu Terengganu PW2 cleanup. Rekod 35430 dinaik taraf kepada VERIFIED; tempoh latihan dikunci 24 bulan berdasarkan bahagian Lain-lain Maklumat rasmi, sambil merekodkan konflik medan utama portal yang masih memaparkan 24 Jam.<br><br><strong>TVETMatch v70:</strong> TVETMARA Kuching Teknousahawan Elektrik Cleanup. Kursus 49589 kini dimodelkan secara berstruktur termasuk PW4, status PW4 tidak didaftarkan dengan syarikat, sijil bidang berkaitan / usahawan elektrik bawah 5 tahun, ujian kecenderungan dan temuduga. Final override sync v69 dikekalkan.<br><br><strong>Asas v69:</strong> Final Override Sync + SPM Subject Autocomplete + KBS Dusun Tua Cleanup. Semua override v63-v69 kini dikompil semula ke enjin padanan dan registry selepas perubahan data, mengelakkan rule lama kekal aktif. Subjek elektif SPM kini boleh ditaip dan dipilih melalui suggestion dropdown. Kursus IKTBN Dusun Tua 14618 dinaik taraf kepada VERIFIED berdasarkan syarat rasmi semasa termasuk status bujang.<br><br><strong>Asas v68:</strong> GIATMARA Bukit Gelugor 11756 dinaik taraf kepada VERIFIED. Active REVIEW Queue kekal untuk batch seterusnya.<br><br><strong>Nota:</strong> penapis TVET Awam kekal aktif: tiada swasta, Politeknik atau Kolej Komuniti.</div>
+
+<script>window.TVETMATCH_PRODUCTION=true;</script>
 
 <script>
 /* TVETMatch v16 — Eligibility Audit Engine + Verified Rule Registry + versioning + Batch Rule Factory + catalog discovery + import pipeline. */
@@ -823,6 +825,7 @@ const SUBJECT_CATALOG=[
  {code:'7403',name:'PRODUKSI MULTIMEDIA',groups:['MPV','VOC','SCI_TECH_VOC','MATH_SCI_TECH_VOC']},
  {code:'7405',name:'PRODUKSI REKA TANDA',groups:['MPV','VOC','SCI_TECH_VOC','MATH_SCI_TECH_VOC']},
  {code:'7407',name:'REKA BENTUK GRAFIK DIGITAL',groups:['MPV','VOC','SCI_TECH_VOC','MATH_SCI_TECH_VOC']},
+ {code:'8201',name:'PRINSIP ELEKTRIK DAN ELEKTRONIK',groups:['MPAV','VOC','SCI_TECH_VOC','MATH_SCI_TECH_VOC']},
  {code:'8202',name:'APLIKASI ELEKTRIK DAN ELEKTRONIK',groups:['MPAV','VOC','SCI_TECH_VOC','MATH_SCI_TECH_VOC']},
  {code:'8321',name:'AUTOMOTIF KENDERAAN',groups:['MPAV','VOC','SCI_TECH_VOC','MATH_SCI_TECH_VOC']},
  {code:'8322',name:'AUTOMOTIF ELEKTRIK DAN DISEL',groups:['MPAV','VOC','SCI_TECH_VOC','MATH_SCI_TECH_VOC']},
@@ -2863,8 +2866,7 @@ function runSelfTests(){
  const el=document.getElementById('selfTestBadge');if(el){el.textContent=`SELF-TEST: ${passed}/${tests.length} LULUS`;if(passed!==tests.length)el.style.color='#ff7f73'}
  return passed===tests.length;
 }
-runSelfTests();
-stageCatalogBatch(DEFAULT_CATALOG_BATCH);
+if(!window.TVETMATCH_PRODUCTION){ runSelfTests(); stageCatalogBatch(DEFAULT_CATALOG_BATCH); } else { window.__TVETMATCH_SELFTEST__={skipped:true,reason:'production-build'}; }
 
 
 function stageLogText(report){
@@ -2990,7 +2992,15 @@ function networkOf(rec){
   if(/KOLEJ PERTANIAN|INSTITUT PERTANIAN|JABATAN PERTANIAN|KOLEJ PERIKANAN|AKADEMI PERIKANAN|INSTITUT VETERINAR|INSTITUT LATIHAN FAMA|PUSAT LATIHAN MARDI|MADA RICE|\bFAMA\b|\bMARDI\b|\bMADA\b/.test(`${a} ${i}`)||a==='KPKM')return 'KPKM';
   return a||'LAIN';
 }
-function campusOf(rec){return String(rec?.inst||rec?.institution||rec?.provider||'').trim()||'Institusi tidak dinyatakan'}
+function campusOf(rec){
+  const raw=String(rec?.inst||rec?.institution||rec?.provider||'').trim();
+  if(!raw)return 'Institusi tidak dinyatakan';
+  const n=normText(raw);
+  /* v126: satukan variasi nama kampus JTM yang sama (huruf besar/kecil dan label ILP/ADTEC dalam kurungan)
+     supaya dropdown kampus tidak memecahkan satu kampus kepada dua pilihan. Data asal rekod tidak diubah. */
+  if(/^ADTEC JTM KAMPUS /.test(n))return n.replace(/\s*\([^)]*\)\s*$/,'').trim();
+  return raw;
+}
 function publicFilterRecords(){return (Array.isArray(courses)?courses:[]).filter(isAllowedPublicTVET)}
 function selectedFilter(id){return document.getElementById(id)?.value||'ALL'}
 function passesPublicTvetFilter(rec){
@@ -3466,7 +3476,7 @@ function v87FinalQAGate(){
   return {releaseReady:Object.values(checks).every(Boolean),checks,counts:{courses:DEFAULT_DATASET.courses.length,activeReview:review.length,manualRules:manual.length,duplicates:dup.length,schemaIssues:schemaIssues.length,registryMiss:registryMiss.length,hashMiss:hashMiss.length},review,manual,duplicates:dup,schemaIssues,registryMiss,hashMiss};
 }
 window.TVETMATCH_FINAL_QA={run:v87FinalQAGate,manualInventory:v87ManualInventory};
-try{
+if(!window.TVETMATCH_PRODUCTION) try{
   const qa=v87FinalQAGate();
   console.log('v87 FINAL QA GATE',qa.releaseReady?'PASS':'CHECK',qa);
   console.log('v87 Active REVIEW zero',qa.checks.activeReviewZero?'PASS':'FAIL');
@@ -3500,7 +3510,7 @@ function v88FinalReleaseGate(){
   };
 }
 window.TVETMATCH_RELEASE_CANDIDATE={run:v88FinalReleaseGate,classifyManual:v88ClassifyManualRule};
-try{
+if(!window.TVETMATCH_PRODUCTION) try{
   const qa=v88FinalReleaseGate();
   console.log('v88 RELEASE CANDIDATE GATE',qa.releaseReady?'PASS':'CHECK',qa);
   console.log('v88 suspicious manual debt',qa.counts.suspiciousManual===0?'PASS':'FAIL',qa.suspiciousManual);
@@ -3529,7 +3539,7 @@ function v89UiFunctionalGate(){
  return {pass:Object.values(checks).every(Boolean),checks,focusValues,routeValues};
 }
 window.TVETMATCH_V89_UI_QA={run:v89UiFunctionalGate,setRoute};
-window.addEventListener('DOMContentLoaded',()=>{try{setTimeout(()=>{const qa=v89UiFunctionalGate();console.log('v89 UI FUNCTIONAL GATE',qa.pass?'PASS':'FAIL',qa)},0)}catch(e){console.warn('v89 UI QA error',e)}});
+window.addEventListener('DOMContentLoaded',()=>{if(window.TVETMATCH_PRODUCTION)return;try{setTimeout(()=>{const qa=v89UiFunctionalGate();console.log('v89 UI FUNCTIONAL GATE',qa.pass?'PASS':'FAIL',qa)},0)}catch(e){console.warn('v89 UI QA error',e)}});
 
 
 /* v90 — Simple checking experience guard. */
@@ -3551,7 +3561,7 @@ function v90SimpleCheckGate(){
  return {pass:Object.values(checks).every(Boolean),checks};
 }
 window.TVETMATCH_V90_UI_QA={run:v90SimpleCheckGate};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v90SimpleCheckGate();console.log('v90 SIMPLE CHECK GATE',qa.pass?'PASS':'FAIL',qa)}catch(e){console.warn('v90 UI QA error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v90SimpleCheckGate();console.log('v90 SIMPLE CHECK GATE',qa.pass?'PASS':'FAIL',qa)}catch(e){console.warn('v90 UI QA error',e)}},0));
 
 
 /* v91 — Completion Integrity Audit: no UI redesign; verify the product is functionally complete before polish. */
@@ -3590,7 +3600,7 @@ function v91CompletionIntegrityAudit(){
   };
 }
 window.TVETMATCH_V91_COMPLETION_AUDIT={run:v91CompletionIntegrityAudit};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v91CompletionIntegrityAudit();console.log('v91 COMPLETION INTEGRITY AUDIT',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v91 completion audit error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v91CompletionIntegrityAudit();console.log('v91 COMPLETION INTEGRITY AUDIT',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v91 completion audit error',e)}},0));
 
 
 /* v92 — Final Functional Smoke Test: exercise representative end-to-end eligibility paths without redesigning UI. */
@@ -3653,7 +3663,7 @@ function v92FinalFunctionalSmokeTest(){
   return {pass:failed.length===0,tests,failed,counts:{tests:tests.length,passed:tests.length-failed.length,failed:failed.length},completion};
 }
 window.TVETMATCH_V92_FUNCTIONAL_TEST={run:v92FinalFunctionalSmokeTest};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v92FinalFunctionalSmokeTest();console.log('v92 FINAL FUNCTIONAL SMOKE TEST',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v92 functional smoke test error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v92FinalFunctionalSmokeTest();console.log('v92 FINAL FUNCTIONAL SMOKE TEST',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v92 functional smoke test error',e)}},0));
 
 
 
@@ -3684,7 +3694,7 @@ function v93FunctionalIssueSweep(){
   return {pass:failed.length===0,tests,failed,counts:{tests:tests.length,passed:tests.length-failed.length,failed:failed.length},smoke};
 }
 window.TVETMATCH_V93_ISSUE_SWEEP={run:v93FunctionalIssueSweep};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v93FunctionalIssueSweep();console.log('v93 FUNCTIONAL ISSUE SWEEP',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v93 issue sweep error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v93FunctionalIssueSweep();console.log('v93 FUNCTIONAL ISSUE SWEEP',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v93 issue sweep error',e)}},0));
 
 
 /* v94 — SEMAK Accuracy Audit: separate incomplete user input from true verification. */
@@ -3723,7 +3733,7 @@ function v94SemakAccuracyAudit(){
   return {pass:failed.length===0,tests,failed,counts:{tests:tests.length,passed:tests.length-failed.length,failed:failed.length}};
 }
 window.TVETMATCH_V94_SEMAK_ACCURACY={run:v94SemakAccuracyAudit,classify:v94DecisionKind};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v94SemakAccuracyAudit();console.log('v94 SEMAK ACCURACY AUDIT',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v94 semak accuracy error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v94SemakAccuracyAudit();console.log('v94 SEMAK ACCURACY AUDIT',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v94 semak accuracy error',e)}},0));
 
 
 /* v95 — Decision State Contract: normalize every engine outcome into one of four user-facing states. */
@@ -3780,7 +3790,7 @@ function v95DecisionStateAudit(){
   return {pass:failed.length===0,tests,failed,matrix,counts:{tests:tests.length,passed:tests.length-failed.length,failed:failed.length}};
 }
 window.TVETMATCH_V95_DECISION_STATE={run:v95DecisionStateAudit,state:v95DecisionState,states:[...V95_DECISION_STATES]};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v95DecisionStateAudit();console.log('v95 DECISION STATE CONTRACT',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v95 decision state error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v95DecisionStateAudit();console.log('v95 DECISION STATE CONTRACT',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v95 decision state error',e)}},0));
 
 
 
@@ -3808,7 +3818,7 @@ function v96MustKeyAudit(){
   return {pass:rows.every(x=>x.pass),rows,unknownMustKeys:unknown,supportedMustKeys:[...V96_SUPPORTED_MUST_KEYS]};
 }
 window.TVETMATCH_V96_MUST_GUARD={run:v96MustKeyAudit,supported:[...V96_SUPPORTED_MUST_KEYS]};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v96MustKeyAudit();console.log('v96 MANDATORY CONDITION GUARD',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v96 mandatory guard error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v96MustKeyAudit();console.log('v96 MANDATORY CONDITION GUARD',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v96 mandatory guard error',e)}},0));
 
 
 /* v97 — Special Evidence Tri-State Guard: hidden special fields must not default to NO before user is asked. */
@@ -3941,7 +3951,7 @@ function v97SpecialEvidenceAudit(){
   const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed,touched:[...V97_SPECIAL_TOUCHED]};
 }
 window.TVETMATCH_V97_SPECIAL_EVIDENCE={run:v97SpecialEvidenceAudit,touched:V97_SPECIAL_TOUCHED,mark:v97MarkSpecialTouched};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v97SpecialEvidenceAudit();console.log('v97 SPECIAL EVIDENCE TRI-STATE',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v97 special evidence error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v97SpecialEvidenceAudit();console.log('v97 SPECIAL EVIDENCE TRI-STATE',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v97 special evidence error',e)}},0));
 
 
 /* v98 — Audit Fidelity Guard: preserve special-evidence tri-state in audit/fingerprint. */
@@ -4005,7 +4015,7 @@ function v98AuditFidelityTest(){
  const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed};
 }
 window.TVETMATCH_V98_AUDIT_FIDELITY={run:v98AuditFidelityTest};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v98AuditFidelityTest();console.log('v98 AUDIT FIDELITY',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v98 audit fidelity error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v98AuditFidelityTest();console.log('v98 AUDIT FIDELITY',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v98 audit fidelity error',e)}},0));
 
 
 /* v99 — Pre-Final Release Gate: combine completion, decision-state, must coverage, tri-state and audit fidelity. */
@@ -4056,7 +4066,7 @@ function v99PreFinalReleaseGate(){
   return {pass:failed.length===0,releaseReady:failed.length===0,checks,failed,profileFlags:flags};
 }
 window.TVETMATCH_V99_PREFINAL={run:v99PreFinalReleaseGate,profileFlags:v99ProfileFlagContractAudit};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v99PreFinalReleaseGate();console.log('v99 PRE-FINAL RELEASE GATE',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v99 pre-final release gate error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v99PreFinalReleaseGate();console.log('v99 PRE-FINAL RELEASE GATE',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v99 pre-final release gate error',e)}},0));
 
 
 /* v100 — Baseline Final: freeze release invariants before UI/UX polish. */
@@ -4082,7 +4092,7 @@ function v100BaselineFinalGate(){
   return {pass:failed.length===0,baselineLocked:failed.length===0,version:'v100',checks,failed};
 }
 window.TVETMATCH_V100_BASELINE={run:v100BaselineFinalGate};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v100BaselineFinalGate();console.log('v100 BASELINE FINAL',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v100 baseline final error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v100BaselineFinalGate();console.log('v100 BASELINE FINAL',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v100 baseline final error',e)}},0));
 
 </script>
 
@@ -4195,7 +4205,7 @@ function v103UiAudit(){
   const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed};
 }
 window.TVETMATCH_V103_UI={audit:v103UiAudit,group:v103GroupResults};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{const qa=v103UiAudit();console.log('v103 RESULTS PRIORITIZATION',qa.pass?'PASS':'CHECK',qa)},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;const qa=v103UiAudit();console.log('v103 RESULTS PRIORITIZATION',qa.pass?'PASS':'CHECK',qa)},0));
 </script>
 
 <script>
@@ -4417,7 +4427,7 @@ function v108UiAudit(){
   const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed};
 }
 window.TVETMATCH_V108_UI={audit:v108UiAudit};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v108UiAudit();console.log('v108 MOBILE TOUCH POLISH',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v108 ui audit error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v108UiAudit();console.log('v108 MOBILE TOUCH POLISH',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v108 ui audit error',e)}},0));
 </script>
 
 <style>
@@ -4494,7 +4504,7 @@ function v109UiAudit(){
   const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed};
 }
 window.TVETMATCH_V109_UI={audit:v109UiAudit};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v109UiAudit();console.log('v109 FINAL VISUAL CONSISTENCY',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v109 ui audit error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v109UiAudit();console.log('v109 FINAL VISUAL CONSISTENCY',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v109 ui audit error',e)}},0));
 </script>
 
 
@@ -4535,7 +4545,7 @@ function v110FinalUserFlowTest(){
   return {pass:failed.length===0,rows,failed};
 }
 window.TVETMATCH_V110_FLOW={run:v110FinalUserFlowTest};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v110FinalUserFlowTest();console.log('v110 FINAL USER FLOW',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v110 final user flow error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v110FinalUserFlowTest();console.log('v110 FINAL USER FLOW',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v110 final user flow error',e)}},0));
 </script>
 
 <style id="v111-release-style">
@@ -4562,7 +4572,7 @@ function v111ReleaseLockAudit(){
 document.body.dataset.release='v111';
 document.title='TVETMatch — Semakan Kelayakan TVET Awam';
 window.TVETMATCH_RELEASE={version:'v111',audit:v111ReleaseLockAudit};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v111ReleaseLockAudit();console.log('v111 RELEASE LOCK',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v111 release lock error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v111ReleaseLockAudit();console.log('v111 RELEASE LOCK',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v111 release lock error',e)}},0));
 </script>
 
 <style id="v112-production-style">
@@ -4587,7 +4597,7 @@ function v112ProductionReleaseAudit(){
 document.body.dataset.release='v113';
 document.querySelectorAll('.devtools,.footer-note').forEach(el=>{el.setAttribute('aria-hidden','true');try{el.inert=true}catch(_){}});
 window.TVETMATCH_RELEASE={version:'v113',channel:'production-final',audit:v112ProductionReleaseAudit};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v112ProductionReleaseAudit();console.log('v113 PRODUCTION FINAL',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v113 production release audit error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v112ProductionReleaseAudit();console.log('v113 PRODUCTION FINAL',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v113 production release audit error',e)}},0));
 </script>
 
 
@@ -4604,7 +4614,7 @@ function v113FinalReleaseAudit(){
   const failed=rows.filter(x=>!x.pass); return {pass:failed.length===0,rows,failed};
 }
 window.TVETMATCH_V113_FINAL_RELEASE={audit:v113FinalReleaseAudit,version:'v113'};
-window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v113FinalReleaseAudit();console.log('v113 FINAL PRODUCTION',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v113 final release audit error',e)}},0));
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const qa=v113FinalReleaseAudit();console.log('v113 FINAL PRODUCTION',qa.pass?'PASS':'CHECK',qa)}catch(e){console.warn('v113 final release audit error',e)}},0));
 </script>
 
 
@@ -4655,7 +4665,7 @@ window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v113
     const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed};
   }
   window.TVETMATCH_V116_KPKM={version:'v116',count:16,audit};
-  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const q=audit();console.log('v116 KPKM BATCH 1',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v116 KPKM audit error',e)}},0));
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v116 KPKM BATCH 1',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v116 KPKM audit error',e)}},0));
 })();
 </script>
 
@@ -4673,7 +4683,7 @@ window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v113
     return {pass:rows.every(x=>x.pass),rows};
   }
   window.TVETMATCH_V117_KPK={version:'v117',count:8,audit};
-  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const q=audit();console.log('v117 KPK BATCH 1',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v117 KPK audit error',e)}},0));
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v117 KPK BATCH 1',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v117 KPK audit error',e)}},0));
 })();
 </script>
 
@@ -4701,7 +4711,783 @@ window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const qa=v113
     const failed=rows.filter(x=>!x.pass);return {pass:failed.length===0,rows,failed};
   }
   window.TVETMATCH_V118_INTEREST={version:'v118',audit};
-  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{const q=audit();console.log('v118 SEARCHABLE INTEREST',q.pass?'PASS':'CHECK',q)}catch(e){console.warn('v118 interest audit error',e)}},0));
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v118 SEARCHABLE INTEREST',q.pass?'PASS':'CHECK',q)}catch(e){console.warn('v118 interest audit error',e)}},0));
+})();
+</script>
+
+
+<script id="v119-tvetmara-bkt2026">
+/* v119 — TVETMARA 2026 Canonical Certificate Refresh (BKT 1.1/2026).
+   Source basis: user-supplied TVETMARA Edisi BKT 1.1/2026, certificate catalogue pages 4-10.
+   This batch intentionally removes unsupported subject thresholds from earlier TVETMARA certificate rules
+   and expands multi-campus offerings into campus-specific records for state/institution filtering. */
+(()=>{
+  const SOURCE='https://www.tvet.gov.my/awam-kursus/carian';
+  const VERIFIED='2026-09-15';
+  const allEvidenceRoutes=['spm','pvma','mpv','skm2','skm3','nospm'];
+  const professional={type:'profileFlag',key:'professionalRelatedCertificate',label:'Sijil Profesional GIATMARA / Sijil Kompetensi / sijil profesional bidang berkaitan'};
+  const pbd={type:'profileFlag',key:'pbdT3TP3Core',label:'PBD Tingkatan 3 minimum TP3 bagi Bahasa Inggeris, Sains dan Matematik'};
+  const interview={type:'profileFlag',key:'passedInterview',label:'Lulus Temuduga / Semakan Portfolio MARA'};
+
+  const stateOf={
+    'Lumut':'PERAK','Pekan':'PAHANG','Jasin':'MELAKA','Kuching':'SARAWAK','Johor Bahru':'JOHOR',
+    'Sungai Petani':'KEDAH','Bintulu':'SARAWAK','Kuala Lumpur':'W.PERSEKUTUAN (KL)',
+    'Besut':'TERENGGANU','Beseri':'PERLIS'
+  };
+  const slug=s=>String(s).toUpperCase().normalize('NFKD').replace(/[^A-Z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const spmOpen=(label='SPM — syarat subjek khusus tidak dinyatakan dalam buku 2026')=>({routes:['spm','mpv'],name:label,priority:100,mode:'all',requirements:[],noPrerequisite:true});
+  const skm2Open=()=>({routes:['skm2','pvma'],name:'SKM Tahap 2 dalam bidang berkaitan',priority:110,mode:'all',requirements:[{type:'hasSkm2'}]});
+  const professionalOpen=()=>({routes:allEvidenceRoutes,name:'Sijil Profesional / Kompetensi bidang berkaitan',priority:95,mode:'all',requirements:[professional]});
+  const pbdOpen=(extra=[])=>({routes:['nospm'],name:'Tingkatan 3 / PMR / PT3 / PBD TP3',priority:90,mode:'all',requirements:[{type:'school',level:3},pbd,...extra]});
+
+  function optionsFor(kind){
+    if(kind==='ARCH')return [
+      {routes:['spm','mpv'],name:'LULUS SPM + Temuduga / Semakan Portfolio MARA',priority:120,mode:'all',requirements:[interview]},
+      skm2Open(),professionalOpen(),pbdOpen([interview])
+    ];
+    if(kind==='GENERIC4')return [spmOpen('LULUS / Menduduki SPM — tiada ambang subjek khusus dinyatakan'),skm2Open(),professionalOpen(),pbdOpen()];
+    if(kind==='SEP')return [spmOpen('LULUS SPM — tiada ambang subjek khusus dinyatakan'),skm2Open(),professionalOpen()];
+    if(kind==='CREDIT_MATH')return [
+      {routes:['spm','mpv'],name:'SPM — 1 Kepujian mana-mana mata pelajaran + Lulus Matematik',priority:120,mode:'all',requirements:[{type:'credits',count:1,min:'C',scope:'spm'},{type:'subjectKey',key:'math',min:'E'}]},
+      skm2Open()
+    ];
+    return [];
+  }
+
+  const catalog=[
+    {page:4,cluster:'Alam Bina',code:'SSB',name:'Sijil Senibina',months:18,classif:'JPK',age:[16,45],color:false,kind:'ARCH',campuses:['Lumut','Pekan']},
+    {page:5,cluster:'Automotif',code:'STB',name:'Sijil Teknologi Baikpulih Badan Kenderaan',months:18,classif:'JPK',age:[16,45],color:true,kind:'GENERIC4',campuses:['Jasin','Pekan','Kuching']},
+    {page:5,cluster:'Automotif',code:'SMM',name:'Sijil Teknologi Kejuruteraan Marin',months:18,classif:'JPK',age:[16,45],color:true,kind:'GENERIC4',campuses:['Kuching','Johor Bahru']},
+    {page:6,cluster:'Awam',code:'STP',name:'Sijil Teknologi Bekalan Air dan Pembentungan',months:24,classif:'MARA',age:[16,45],color:false,kind:'GENERIC4',campuses:['Sungai Petani']},
+    {page:6,cluster:'Awam',code:'SBN',name:'Sijil Teknologi Kejuruteraan Bangunan',months:18,classif:'JPK',age:[16,45],color:false,kind:'GENERIC4',campuses:['Lumut','Pekan']},
+    {page:6,cluster:'Awam',code:'STN',name:'Sijil Teknologi Bangunan',months:24,classif:'JPK',age:[16,45],color:false,kind:'GENERIC4',campuses:['Kuching']},
+    {page:7,cluster:'Elektrik',code:'SEP',name:'Sijil Teknologi Kejuruteraan Elektrik (Kuasa)',months:36,classif:'JPK',age:[18,45],color:true,kind:'SEP',campuses:['Kuching']},
+    {page:7,cluster:'Elektrik',code:'SPE',name:'Sijil Teknologi Kejuruteraan Pemasangan Elektrik',months:24,classif:'MQA',age:[17,45],color:true,kind:'CREDIT_MATH',campuses:['Bintulu']},
+    {page:8,cluster:'Mekanikal Pembuatan',code:'STF',name:'Sijil Teknologi Foundri',months:18,classif:'JPK',age:[16,45],color:false,kind:'GENERIC4',campuses:['Lumut']},
+    {page:8,cluster:'Mekanikal Pembuatan',code:'STK',name:'Sijil Teknologi Kimpalan',months:18,classif:'JPK',age:[16,45],color:false,kind:'GENERIC4',campuses:['Kuala Lumpur','Jasin','Pekan']},
+    {page:8,cluster:'Mekanikal Pembuatan',code:'SPN',name:'Sijil Teknologi Kejuruteraan Pembuatan',months:18,classif:'JPK',age:[16,45],color:false,kind:'GENERIC4',campuses:['Kuala Lumpur','Johor Bahru']},
+    {page:8,cluster:'Mekanikal Pembuatan',code:'SLR',name:'Sijil Teknologi Kejuruteraan Mekanikal (Lukisan Rekabentuk)',months:18,classif:'JPK',age:[16,45],color:false,kind:'GENERIC4',campuses:['Lumut','Besut','Pekan','Johor Bahru']},
+    {page:9,cluster:'Mekanikal Servis',code:'SPP',name:'Sijil Teknologi Kejuruteraan Penyamanan Udara dan Penyejukan',months:18,classif:'JPK',age:[16,45],color:true,kind:'GENERIC4',campuses:['Beseri']},
+    {page:9,cluster:'Mekanikal Servis',code:'SMI',name:'Sijil Teknologi Kejuruteraan Mekanik Industri',months:18,classif:'JPK',age:[16,45],color:true,kind:'GENERIC4',campuses:['Kuala Lumpur','Johor Bahru']},
+    {page:10,cluster:'Minyak dan Gas',code:'SFS',name:'Sijil Teknologi Kejuruteraan Fabrikasi Struktur',months:24,classif:'MQA',age:[17,45],color:false,kind:'CREDIT_MATH',campuses:['Bintulu']},
+    {page:10,cluster:'Minyak dan Gas',code:'SFP',name:'Sijil Teknologi Kejuruteraan Fabrikasi Perpaipan',months:24,classif:'MQA',age:[17,45],color:false,kind:'CREDIT_MATH',campuses:['Bintulu']}
+  ];
+
+  const canonicalNames=new Set(catalog.map(x=>fitNorm(x.name)));
+  const canonicalCodes=new Set(catalog.map(x=>x.code));
+  const staleExplicit=new Set(['SIJIL TEKNOLOGI KEJURUTERAAN AUTOMOTIF']);
+  const removed=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i];
+    if(c.agency!=='MARA')continue;
+    const n=fitNorm(c.name),code=String(c.code||'').toUpperCase();
+    if(canonicalNames.has(n)||canonicalCodes.has(code)||staleExplicit.has(n)){
+      removed.push({sourceId:String(c.sourceId||''),name:c.name,inst:c.inst,code:c.code||''});
+      DEFAULT_DATASET.courses.splice(i,1);
+    }
+  }
+
+  const inserted=[];
+  for(const p of catalog){
+    for(const campus of p.campuses){
+      const rec={
+        name:p.name,code:p.code,sourceId:`BKT2026-${p.code}-${slug(campus)}`,agency:'MARA',inst:`TVETMARA ${campus}`,
+        state:stateOf[campus]||'LAIN-LAIN',level:`Sijil ${p.classif}`,months:p.months,verified:VERIFIED,source:SOURCE,
+        sector:'AWAM',programType:'PROGRAM_PENUH',nossCode:'',credentialFull:'',
+        must:{age:p.age,citizen:true,bumi:true,healthy:true,...(p.color?{color:true}:{})},pending:[],dataQuality:'VERIFIED',
+        options:optionsFor(p.kind),
+        verificationNote:`v119: TVETMARA Edisi BKT 1.1/2026, halaman ${p.page}. Kod ${p.code}; kluster ${p.cluster}; kampus ${campus}; tempoh ${p.months/12} tahun; klasifikasi ${p.classif}. Syarat dimodelkan hanya setakat yang dinyatakan dalam buku 2026 bersama syarat umum Program Perdana. Ambang BM/Sejarah atau sekatan lain daripada rekod lama tidak digunakan jika tidak dinyatakan dalam buku ini.`,
+        sourceEdition:'TVETMARA Edisi BKT 1.1/2026',sourcePage:p.page,canonical2026:true
+      };
+      DEFAULT_DATASET.courses.push(rec);inserted.push(rec);
+    }
+  }
+
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+
+  function audit(){
+    const live=DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA'&&c.canonical2026===true);
+    const codes=[...new Set(live.map(c=>c.code))];
+    const duplicateIds=live.map(c=>String(c.sourceId)).filter((x,i,a)=>a.indexOf(x)!==i);
+    const wrongSource=live.filter(c=>!/^https:\/\/(?:www\.)?tvet\.gov\.my\//.test(c.source||''));
+    const staleAutomotif=DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA'&&fitNorm(c.name)==='SIJIL TEKNOLOGI KEJURUTERAAN AUTOMOTIF');
+    const rows=[
+      {name:'16 program Sijil TVETMARA 2026 dimuat',pass:codes.length===16,detail:codes.length},
+      {name:'28 rekod kampus dimuat',pass:live.length===28,detail:live.length},
+      {name:'Semua rekod canonical VERIFIED',pass:live.every(c=>c.dataQuality==='VERIFIED'&&!c.pending.length),detail:live.filter(c=>c.dataQuality!=='VERIFIED'||c.pending.length).length},
+      {name:'Tiada duplicate sourceId canonical',pass:duplicateIds.length===0,detail:duplicateIds},
+      {name:'Sumber runtime kekal domain rasmi TVET',pass:wrongSource.length===0,detail:wrongSource.length},
+      {name:'Rekod Sijil Kejuruteraan Automotif lama dikeluarkan dari katalog BKT 2026',pass:staleAutomotif.length===0,detail:staleAutomotif.length},
+      {name:'Senibina tidak memaksa BM/Sejarah lama',pass:live.filter(c=>c.code==='SSB').every(c=>!JSON.stringify(c.options).includes('subjectKey')),detail:'SSB'},
+      {name:'SPE/SFS/SFP guna 1 kepujian + lulus Matematik',pass:live.filter(c=>['SPE','SFS','SFP'].includes(c.code)).every(c=>JSON.stringify(c.options).includes('"credits"')&&JSON.stringify(c.options).includes('"math"')),detail:'SPE/SFS/SFP'}
+    ];
+    return {version:'v119',pass:rows.every(x=>x.pass),programs:16,campusRecords:live.length,removedLegacy:removed.length,rows,removed};
+  }
+  window.TVETMATCH_V119_MARA2026={version:'v119',catalog,insertedCount:inserted.length,removedLegacy:removed,audit};
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v119 TVETMARA BKT 1.1/2026',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v119 TVETMARA audit error',e)}},0));
+})();
+
+</script>
+<script id="v120-tvetmara-diploma-bkt2026">
+/* v120 — TVETMARA 2026 Canonical Diploma Refresh (BKT 1.1/2026), pages 12-37.
+   Scope: diploma/advanced diploma catalogue, campus mapping and supported SPM rules.
+   Special pathways (Tahfiz, technopreneur, competency licences, interviews, prior certificates) are guarded with profile/manual evidence rather than guessed. */
+(()=>{
+  const SOURCE='https://www.tvetmara.edu.my/';
+  const VERIFIED='2026-09-15';
+  const catalog=[{"page":12,"cluster":"Alam Bina","code":"DSB","name":"Diploma Senibina","months":36,"classif":"MQA","campuses":["Pasir Mas"],"kind":"DESIGN3_INTERVIEW"},{"page":12,"cluster":"Alam Bina","code":"DSD","name":"Diploma Rekabentuk Dalaman","months":36,"classif":"MQA","campuses":["Rembau"],"kind":"DESIGN3_INTERVIEW"},{"page":12,"cluster":"Alam Bina","code":"DSJ","name":"Diploma Senibina","months":36,"classif":"MQA","campuses":["Sungai Petani"],"kind":"DESIGN3_INTERVIEW"},{"page":12,"cluster":"Alam Bina","code":"UTL","name":"Diploma Teknousahawan Pembinaan dan Penyelenggaraan Landskap","months":24,"classif":"MARA","campuses":["Sik"],"kind":"TECHNO2Y"},{"page":13,"cluster":"Automotif","code":"DAF","name":"Diploma Teknologi Kejuruteraan Automotif","months":36,"classif":"ETAC","campuses":["Masjid Tanah"],"kind":"TECH3","color":true},{"page":13,"cluster":"Automotif","code":"DGA","name":"Diploma Teknologi Automotif","months":36,"classif":"JPK","campuses":["Beseri","Lumut","Besut"],"kind":"ANY2","color":true},{"page":14,"cluster":"Automotif","code":"DGP","name":"Diploma Teknologi Automotif (Servis)","months":18,"classif":"JPK","campuses":["Jasin","Pekan"],"kind":"SKM3_ONLY","color":true},{"page":14,"cluster":"Automotif","code":"DTX","name":"Diploma Teknologi Automotif Pengemasan Kenderaan","months":36,"classif":"JPK","campuses":["Kota Kinabalu"],"kind":"OPEN_SPM","color":true},{"page":14,"cluster":"Automotif","code":"DAE","name":"Diploma Teknologi Kejuruteraan Automotif Komersial (Kenderaan Elektrik)","months":36,"classif":"ETAC","campuses":["Jasin"],"kind":"TECH3","color":true},{"page":15,"cluster":"Automotif","code":"DTB","name":"Diploma Teknologi Automotif Baikpulih dan Kemasan Badan Kenderaan","months":36,"classif":"JPK","campuses":["Lumut"],"kind":"ANY2","color":true},{"page":15,"cluster":"Automotif","code":"DTJ","name":"Diploma Teknologi Automotif Jentera Berat","months":36,"classif":"MBOT","campuses":["Jasin"],"kind":"ANY3_BI_MATH","color":true},{"page":16,"cluster":"Automotif","code":"TAK","name":"Diploma Teknologi Automotif Komersial","months":36,"classif":"JPK","campuses":["Jasin","Pekan"],"kind":"ANY2","color":true},{"page":16,"cluster":"Automotif","code":"TAK","name":"Diploma Teknologi Automotif Komersial - TVET Tahfiz","months":36,"classif":"JPK","campuses":["Jasin"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":16,"cluster":"Automotif","code":"TAP","name":"Diploma Teknologi Automotif (4WD)","months":36,"classif":"JPK","campuses":["Kuching","Kota Kinabalu"],"kind":"ANY2","color":true},{"page":17,"cluster":"Automotif","code":"DTK","name":"Diploma Teknologi Marin","months":36,"classif":"JPK","campuses":["Beseri"],"kind":"TWO_GROUP_BI_MATH","color":true},{"page":18,"cluster":"Awam","code":"DTC","name":"Diploma Teknologi Kejuruteraan Pembinaan (Sistem Termaju)","months":36,"classif":"ETAC","campuses":["Sri Gading"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DTG","name":"Diploma Teknologi Kejuruteraan Pembinaan (Geo-Struktur)","months":36,"classif":"ETAC","campuses":["Sri Gading"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DTF","name":"Diploma Teknologi Kejuruteraan Pembinaan (Forensik Bangunan dan Penyelenggaraan)","months":36,"classif":"ETAC","campuses":["Sri Gading"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DTH","name":"Diploma Teknologi Kejuruteraan Pembinaan (Jalanraya dan Pengangkutan)","months":36,"classif":"ETAC","campuses":["Sri Gading"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DTM","name":"Diploma Teknologi Kejuruteraan Pembinaan (Perkhidmatan Bangunan dan Penyelenggaraan)","months":36,"classif":"ETAC","campuses":["Sri Gading"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DTV","name":"Diploma Teknologi Kejuruteraan Pembinaan (Pemodelan Maklumat Bangunan)","months":36,"classif":"ETAC","campuses":["Sri Gading"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DTE","name":"Diploma Teknologi Kejuruteraan Pembinaan (Bangunan Hijau)","months":36,"classif":"ETAC","campuses":["Sri Gading"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DBN","name":"Diploma Teknologi Kejuruteraan Bangunan","months":36,"classif":"ETAC","campuses":["Pasir Mas"],"kind":"TECH3"},{"page":18,"cluster":"Awam","code":"DTW","name":"Diploma Teknologi Perkhidmatan Air","months":36,"classif":"JPK","campuses":["Lumut"],"kind":"ANY2"},{"page":18,"cluster":"Awam","code":"DTA","name":"Diploma Teknologi Awam dan Struktur (Pemodelan Maklumat Bangunan)","months":36,"classif":"JPK","campuses":["Sungai Petani","Kota Kinabalu"],"kind":"ANY2"},{"page":19,"cluster":"Pemprosesan Bahan","code":"DTP","name":"Diploma Teknologi Kejuruteraan Pemprosesan Polimer Komposit","months":36,"classif":"MQA","campuses":["Masjid Tanah"],"kind":"TECH3"},{"page":19,"cluster":"Pemprosesan Bahan","code":"DTS","name":"Diploma Teknologi Kejuruteraan Pemprosesan Seramik","months":36,"classif":"MQA","campuses":["Masjid Tanah"],"kind":"TECH3"},{"page":19,"cluster":"Pemprosesan Bahan","code":"DTL","name":"Diploma Teknologi Kejuruteraan Pemprosesan Plastik","months":36,"classif":"MQA","campuses":["Masjid Tanah"],"kind":"TECH3"},{"page":20,"cluster":"Pemprosesan Bahan","code":"IAC","name":"Diploma Industri Pembuatan Komposit Aeroangkasa","months":24,"classif":"JPK","campuses":["Masjid Tanah"],"kind":"INDUSTRY2_INTERVIEW","color":true,"notes":"BMI normal dan sihat tubuh badan (tiada penyakit asma) dinyatakan sebagai syarat wajib."},{"page":20,"cluster":"Pemprosesan Bahan","code":"DIC","name":"Diploma Industri Pengeluaran Seramik Termaju","months":24,"classif":"JPK","campuses":["Masjid Tanah"],"kind":"INDUSTRY2_INTERVIEW","color":true},{"page":21,"cluster":"Bioperubatan","code":"DKT","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Terapeutik)","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TECH3","color":true},{"page":21,"cluster":"Bioperubatan","code":"DKD","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Diagnostik)","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TECH3","color":true},{"page":21,"cluster":"Bioperubatan","code":"DKG","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Radiologi dan Pengimejan)","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TECH3","color":true},{"page":21,"cluster":"Bioperubatan","code":"DKL","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Makmal)","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TECH3","color":true},{"page":21,"cluster":"Bioperubatan","code":"DKB","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Teknologi Maklumat dan Komunikasi)","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TECH3","color":true},{"page":22,"cluster":"Bioperubatan","code":"DKT","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Terapeutik) - TVET Tahfiz","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":22,"cluster":"Bioperubatan","code":"DKD","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Diagnostik) - TVET Tahfiz","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":22,"cluster":"Bioperubatan","code":"DKG","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Radiologi dan Pengimejan) - TVET Tahfiz","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":22,"cluster":"Bioperubatan","code":"DKL","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Makmal) - TVET Tahfiz","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":22,"cluster":"Bioperubatan","code":"DKB","name":"Diploma Kejuruteraan Elektronik Bioperubatan (Teknologi Maklumat dan Komunikasi) - TVET Tahfiz","months":36,"classif":"ETAC","campuses":["Ledang"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":23,"cluster":"Elektrik","code":"DCB","name":"Diploma Lanjutan Kompetensi Elektrik (Penjanaan)","months":12,"classif":"JPK","campuses":["Seberang Perai Utara","Lumut","Kuala Lumpur","Jasin","Johor Bahru","Pekan"],"kind":"DCB_ADV","color":true},{"page":23,"cluster":"Elektrik","code":"DEP","name":"Diploma Teknologi Kejuruteraan Elektrik (Kuasa)","months":36,"classif":"ETAC","campuses":["Pasir Mas","Seberang Perai Utara"],"kind":"TECH3","color":true},{"page":23,"cluster":"Elektrik","code":"DED","name":"Diploma Teknologi Kejuruteraan Elektrik (Domestik dan Industri)","months":36,"classif":"ETAC","campuses":["Pasir Mas","Johor Bahru","Seberang Perai Utara"],"kind":"TECH3","color":true},{"page":23,"cluster":"Elektrik","code":"DEO","name":"Diploma Teknologi Kejuruteraan Elektrik (Operasi Loji)","months":36,"classif":"ETAC","campuses":["Kemaman"],"kind":"TECH3","color":true},{"page":23,"cluster":"Elektrik","code":"DEE","name":"Diploma Teknologi Kejuruteraan Pemasangan Elektrik","months":36,"classif":"ETAC","campuses":["Bintulu"],"kind":"TECH3","color":true},{"page":23,"cluster":"Elektrik","code":"DEA","name":"Diploma Kejuruteraan Elektrik","months":36,"classif":"ETAC","campuses":["Pasir Mas"],"kind":"TECH3","color":true},{"page":24,"cluster":"Elektrik","code":"DCS","name":"Diploma Kompetensi Elektrik (Domestik dan Industri)","months":36,"classif":"JPK","campuses":["Beseri","Lumut","Kuala Lumpur","Pekan","Kuching","Kota Kinabalu"],"kind":"DCS_MATH_SCI","color":true},{"page":24,"cluster":"Elektrik","code":"DCA","name":"Diploma Kompetensi Elektrik (Pengagihan)","months":24,"classif":"JPK","campuses":["Sik","Seberang Perai Utara","Kuala Lumpur","Jasin"],"kind":"DCA_ADV","color":true},{"page":24,"cluster":"Elektrik","code":"DCP","name":"Diploma Kompetensi Elektrik (Kuasa)","months":36,"classif":"JPK","campuses":["Sik","Lumut","Johor Bahru","Jasin","Pekan","Kota Kinabalu"],"kind":"TWO_GROUP","color":true},{"page":25,"cluster":"Elektrik","code":"DCG","name":"Diploma Kompetensi Elektrik (Industri)","months":18,"classif":"JPK","campuses":["Beseri","Jasin","Besut"],"kind":"DCG_PW2","color":true},{"page":25,"cluster":"Elektrik","code":"DCM","name":"Diploma Kompetensi Elektrik (Penyelenggaraan)","months":24,"classif":"JPK","campuses":["Besut"],"kind":"DCM_PW","color":true},{"page":25,"cluster":"Elektrik","code":"UTE","name":"Diploma Teknousahawan Elektrik","months":24,"classif":"JPK","campuses":["Seberang Perai Utara"],"kind":"UTE_PW4","color":true},{"page":26,"cluster":"Elektronik","code":"DKS","name":"Diploma Kejuruteraan Elektronik (Robotik & Automasi)","months":36,"classif":"ETAC","campuses":["MJII"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DKE","name":"Diploma Kejuruteraan Elektronik (Sistem Terbenam)","months":36,"classif":"ETAC","campuses":["MJII"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DKM","name":"Diploma Kejuruteraan Elektronik (Mikroelektronik)","months":36,"classif":"ETAC","campuses":["MJII"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DKC","name":"Diploma Kejuruteraan Elektronik (Pengukuran Elektronik & Kawalan)","months":36,"classif":"ETAC","campuses":["MJII"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DKR","name":"Diploma Kejuruteraan Elektronik (Transmisi Data & Rangkaian)","months":36,"classif":"ETAC","campuses":["MJII"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DEI","name":"Diploma Teknologi Kejuruteraan Elektronik (Industri)","months":36,"classif":"ETAC","campuses":["Pasir Mas"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DMK","name":"Diploma Teknologi Kejuruteraan Mekatronik Industri","months":36,"classif":"ETAC","campuses":["Balik Pulau"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DNK","name":"Diploma Teknologi Kejuruteraan Elektronik Gunaan","months":36,"classif":"ETAC","campuses":["Sungai Petani"],"kind":"TECH3","color":true},{"page":26,"cluster":"Elektronik","code":"DFI","name":"Diploma Kejuruteraan Elektronik (Objek Rangkaian Internet)","months":30,"classif":"ETAC","campuses":["Petaling Jaya"],"kind":"TECH3","color":true},{"page":27,"cluster":"Elektronik","code":"DFS","name":"Diploma Teknologi Komputer (Sekuriti)","months":36,"classif":"MBOT","campuses":["Sik"],"kind":"ANY3_BI_MATH"},{"page":27,"cluster":"Elektronik","code":"DFK","name":"Diploma Teknologi Komputer (Komputasi Awan)","months":36,"classif":"MBOT","campuses":["Besut"],"kind":"ANY3_BI_MATH"},{"page":27,"cluster":"Elektronik","code":"DFD","name":"Diploma Teknologi Komputer (Analisa Data Besar)","months":36,"classif":"MBOT","campuses":["Lumut"],"kind":"ANY3_BI_MATH"},{"page":27,"cluster":"Elektronik","code":"DCN","name":"Diploma Kompetensi Rangkaian Komputer dan Sistem Pentadbiran","months":18,"classif":"JPK","campuses":["Ledang"],"kind":"SKM3_ONLY","color":true},{"page":28,"cluster":"Elektronik","code":"DEK","name":"Diploma Teknologi Pembuatan Produk Elektronik","months":36,"classif":"JPK","campuses":["Johor Bahru"],"kind":"ANY2","color":true},{"page":28,"cluster":"Elektronik","code":"DGK","name":"Diploma Teknologi Mekatronik (Sistem Kawalan)","months":30,"classif":"JPK","campuses":["Pekan"],"kind":"ANY2","color":true},{"page":28,"cluster":"Elektronik","code":"DEK","name":"Diploma Teknologi Pembuatan Produk Elektronik - TVET Tahfiz","months":36,"classif":"JPK","campuses":["Johor Bahru"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DKA","name":"Diploma Kejuruteraan Pembuatan (Pembuatan Automotif)","months":36,"classif":"ETAC","campuses":["Kuantan"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DKQ","name":"Diploma Kejuruteraan Pembuatan (Kualiti dan Produktiviti)","months":36,"classif":"ETAC","campuses":["Kuantan"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DKP","name":"Diploma Kejuruteraan Pembuatan (Teknologi dan Proses)","months":36,"classif":"ETAC","campuses":["Kuantan"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DKI","name":"Diploma Kejuruteraan Pembuatan (Automasi Industri dan Robotik)","months":36,"classif":"ETAC","campuses":["Kuantan"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DKN","name":"Diploma Kejuruteraan Pembuatan (Rekabentuk Pembuatan)","months":36,"classif":"ETAC","campuses":["Kuantan"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DLR","name":"Diploma Teknologi Kejuruteraan Mekanikal Rekabentuk","months":36,"classif":"ETAC","campuses":["Pasir Mas"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DPN","name":"Diploma Teknologi Kejuruteraan Pembuatan","months":36,"classif":"ETAC","campuses":["Balik Pulau"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DPT","name":"Diploma Teknologi Kejuruteraan Pembuatan (Acuan Tekan)","months":36,"classif":"ETAC","campuses":["Balik Pulau"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DAN","name":"Diploma Teknologi Kejuruteraan Pembuatan (Acuan Suntikan Plastik)","months":36,"classif":"ETAC","campuses":["Balik Pulau"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DRP","name":"Diploma Teknologi Kejuruteraan Pembuatan (Rekabentuk Produk)","months":36,"classif":"ETAC","campuses":["Balik Pulau"],"kind":"TECH3"},{"page":29,"cluster":"Mekanikal Pembuatan","code":"DNS","name":"Diploma Teknologi Kejuruteraan (Pembuatan Pintar)","months":36,"classif":"ETAC","campuses":["Lumut"],"kind":"TECH3"},{"page":30,"cluster":"Mekanikal Pembuatan","code":"DGN","name":"Diploma Teknologi Pembuatan","months":36,"classif":"JPK","campuses":["Pekan + Balik Pulau"],"kind":"ANY2","notes":"1.5 tahun di Pekan dan 1.5 tahun di KKTM Balik Pulau."},{"page":30,"cluster":"Mekanikal Pembuatan","code":"DRM","name":"Diploma Teknologi Lukisan Rekabentuk Mekanikal","months":30,"classif":"JPK","campuses":["Jasin + Kuala Lumpur"],"kind":"ANY2","notes":"1 tahun di IKM Jasin dan 1.5 tahun di IKM Kuala Lumpur."},{"page":30,"cluster":"Mekanikal Pembuatan","code":"IMF","name":"Diploma Industri Siapan Logam","months":24,"classif":"JPK","campuses":["Johor Bahru"],"kind":"ANY2"},{"page":30,"cluster":"Mekanikal Pembuatan","code":"DSR","name":"Diploma Teknologi Pembaikan Struktur Pesawat","months":30,"classif":"JPK","campuses":["Kuala Lumpur"],"kind":"ANY2"},{"page":30,"cluster":"Mekanikal Pembuatan","code":"DGG","name":"Diploma Teknologi Pembuatan (1.5 Tahun)","months":18,"classif":"JPK","campuses":["Balik Pulau"],"kind":"SKM3_ONLY"},{"page":30,"cluster":"Mekanikal Pembuatan","code":"GMD","name":"Diploma Teknologi Lukisan Rekabentuk (Mekanikal) (1.5 Tahun)","months":18,"classif":"JPK","campuses":["Kuala Lumpur"],"kind":"SKM3_ONLY"},{"page":30,"cluster":"Mekanikal Pembuatan","code":"ITW","name":"Diploma Kompetensi Kimpalan","months":36,"classif":"JPK","campuses":["Beseri","Lumut","Johor Bahru","Besut","Kuching"],"kind":"ANY2","color":true},{"page":30,"cluster":"Mekanikal Pembuatan","code":"ITW","name":"Diploma Kompetensi Kimpalan - TVET Tahfiz","months":36,"classif":"JPK","campuses":["Lumut"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":30,"cluster":"Mekanikal Pembuatan","code":"DCW","name":"Diploma Kompetensi Kimpalan (1.5 Tahun)","months":18,"classif":"JPK","campuses":["Beseri","Johor Bahru","Lumut"],"kind":"SKM3_ONLY","color":true},{"page":31,"cluster":"Mekanikal Servis","code":"DPP","name":"Diploma Teknologi Kejuruteraan Penyamanan Udara dan Penyejukan","months":36,"classif":"ETAC","campuses":["Johor Bahru"],"kind":"TECH3","color":true},{"page":31,"cluster":"Mekanikal Servis","code":"DNM","name":"Diploma Teknologi Kejuruteraan (Penyelenggaraan Industri)","months":36,"classif":"ETAC","campuses":["Jasin"],"kind":"TECH3"},{"page":31,"cluster":"Mekanikal Servis","code":"PPU","name":"Diploma Teknologi Penyejukan dan Penyamanan Udara","months":30,"classif":"JPK","campuses":["Sik","Kuala Lumpur","Besut","Kota Kinabalu"],"kind":"ANY2","color":true},{"page":32,"cluster":"Mekanikal Servis","code":"PPU","name":"Diploma Teknologi Penyejukan dan Penyamanan Udara - TVET Tahfiz","months":30,"classif":"JPK","campuses":["Besut"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":32,"cluster":"Mekanikal Servis","code":"DTU","name":"Diploma Teknologi Pengurusan dan Rekabentuk Penyamanan Udara","months":18,"classif":"JPK","campuses":["Beseri"],"kind":"SKM3_ONLY","color":true},{"page":32,"cluster":"Mekanikal Servis","code":"UTA","name":"Diploma Teknousahawan Penyejukan dan Penyamanan Udara","months":24,"classif":"JPK","campuses":["Kuala Lumpur"],"kind":"TECHNO2Y","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DLP","name":"Diploma Teknologi Kejuruteraan Loji (Perpaipan)","months":36,"classif":"ETAC","campuses":["Kemaman"],"kind":"TECH3","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DLM","name":"Diploma Teknologi Kejuruteraan Loji (Mekanikal)","months":36,"classif":"ETAC","campuses":["Kemaman"],"kind":"TECH3","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DLS","name":"Diploma Teknologi Kejuruteraan Loji (Struktur Luar Pesisir)","months":36,"classif":"ETAC","campuses":["Kemaman"],"kind":"TECH3","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DLI","name":"Diploma Teknologi Kejuruteraan Loji (Instrumentasi dan Kawalan)","months":36,"classif":"ETAC","campuses":["Kemaman"],"kind":"TECH3","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DLO","name":"Diploma Teknologi Kejuruteraan Petroleum (Operasi Pesisir)","months":36,"classif":"ETAC","campuses":["Kemaman"],"kind":"TECH3","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DGS","name":"Diploma Teknologi Kejuruteraan Gas","months":36,"classif":"ETAC","campuses":["Johor Bahru"],"kind":"TECH3","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DOL","name":"Diploma Teknologi Kejuruteraan Petroleum (Operasi Loji)","months":36,"classif":"ETAC","campuses":["Bintulu"],"kind":"TECH3","color":true},{"page":33,"cluster":"Minyak dan Gas","code":"DIK","name":"Diploma Teknologi Kejuruteraan Petroleum (Instrumentasi dan Kawalan Loji)","months":36,"classif":"ETAC","campuses":["Bintulu"],"kind":"TECH3","color":true},{"page":34,"cluster":"Seni dan Rekabentuk","code":"DSP","name":"Diploma Rekabentuk Perabot","months":36,"classif":"MQA","campuses":["Rembau"],"kind":"DESIGN3_INTERVIEW"},{"page":34,"cluster":"Seni dan Rekabentuk","code":"DSF","name":"Diploma Rekabentuk Fesyen","months":36,"classif":"MQA","campuses":["Rembau"],"kind":"DESIGN3_INTERVIEW"},{"page":34,"cluster":"Seni dan Rekabentuk","code":"DSV","name":"Diploma Perfileman Digital","months":36,"classif":"MQA","campuses":["Rembau"],"kind":"DESIGN3_INTERVIEW"},{"page":34,"cluster":"Seni dan Rekabentuk","code":"DSM","name":"Diploma Rekabentuk Media Digital","months":36,"classif":"MQA","campuses":["Rembau"],"kind":"DESIGN3_INTERVIEW"},{"page":34,"cluster":"Seni dan Rekabentuk","code":"DSK","name":"Diploma Rekabentuk Pengiklanan Digital","months":36,"classif":"MQA","campuses":["Sungai Petani"],"kind":"DESIGN3_INTERVIEW"},{"page":34,"cluster":"Seni dan Rekabentuk","code":"UPF","name":"Diploma Teknousahawan Rekabentuk dan Pengeluaran Fabrik","months":24,"classif":"MARA","campuses":["Alor Setar"],"kind":"TECHNO2Y"},{"page":34,"cluster":"Seni dan Rekabentuk","code":"UTF","name":"Diploma Teknousahawan Fesyen","months":24,"classif":"MARA","campuses":["Rembau"],"kind":"TECHNO2Y"},{"page":34,"cluster":"Seni dan Rekabentuk","code":"UPP","name":"Diploma Teknousahawan Rekabentuk dan Pengeluaran Perabot","months":24,"classif":"JPK","campuses":["Alor Setar"],"kind":"TECHNO3Y"},{"page":35,"cluster":"Seni dan Rekabentuk","code":"UTU","name":"Diploma Teknousahawan Upholsteri","months":24,"classif":"MARA","campuses":["Sungai Petani"],"kind":"TECHNO2Y"},{"page":35,"cluster":"Seni dan Rekabentuk","code":"DLA","name":"Diploma Pengeluaran Perabot","months":30,"classif":"JPK","campuses":["Sungai Petani","Pekan"],"kind":"DLA_INTERVIEW"},{"page":35,"cluster":"Seni dan Rekabentuk","code":"DLA","name":"Diploma Pengeluaran Perabot - TVET Tahfiz","months":30,"classif":"JPK","campuses":["Pekan"],"kind":"TAHFIZ","track":"TVET TAHFIZ","color":true},{"page":35,"cluster":"Seni dan Rekabentuk","code":"DTR","name":"Diploma Teknologi Pengeluaran Perabot Kontemporari","months":36,"classif":"JPK","campuses":["Lumut"],"kind":"ANY2"},{"page":36,"cluster":"Bioteknologi","code":"DHM","name":"Diploma Herba dan Hasilan Semulajadi (Pembuatan)","months":36,"classif":"MQA","campuses":["Lenggong"],"kind":"SCIENCE3"},{"page":36,"cluster":"Bioteknologi","code":"DHH","name":"Diploma Herba dan Hasilan Semulajadi (Sains Herba)","months":36,"classif":"MQA","campuses":["Lenggong"],"kind":"SCIENCE3"},{"page":36,"cluster":"Bioteknologi","code":"DPD","name":"Diploma Teknologi Pembungkusan dan Rekabentuk","months":36,"classif":"MBOT","campuses":["Lenggong"],"kind":"ANY3_BI_MATH"},{"page":37,"cluster":"Bioteknologi","code":"DPM","name":"Diploma Teknologi Kejuruteraan Penyelenggaraan Loji","months":36,"classif":"ETAC","campuses":["Lenggong"],"kind":"TECH3"},{"page":37,"cluster":"Bioteknologi","code":"DFE","name":"Diploma Teknologi Kejuruteraan Biokimia (Makanan)","months":36,"classif":"ETAC","campuses":["Lenggong"],"kind":"TECH3"}];
+  const stateOf={"Lumut":"PERAK","Pekan":"PAHANG","Jasin":"MELAKA","Kuching":"SARAWAK","Johor Bahru":"JOHOR","Sungai Petani":"KEDAH","Bintulu":"SARAWAK","Kuala Lumpur":"W.PERSEKUTUAN (KL)","Besut":"TERENGGANU","Beseri":"PERLIS","Pasir Mas":"KELANTAN","Rembau":"NEGERI SEMBILAN","Sik":"KEDAH","Masjid Tanah":"MELAKA","Kota Kinabalu":"SABAH","Sri Gading":"JOHOR","Ledang":"JOHOR","Seberang Perai Utara":"PULAU PINANG","Kemaman":"TERENGGANU","MJII":"SELANGOR","Balik Pulau":"PULAU PINANG","Petaling Jaya":"SELANGOR","Kuantan":"PAHANG","Alor Setar":"KEDAH","Lenggong":"PERAK","Pekan + Balik Pulau":"PELBAGAI NEGERI","Jasin + Kuala Lumpur":"PELBAGAI NEGERI"};
+  const slug=s=>String(s).toUpperCase().normalize('NFKD').replace(/[^A-Z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const pf=(key,label)=>({type:'profileFlag',key,label});
+  const manual=text=>({type:'manual',text});
+  const interview=pf('passedInterview','Lulus Temuduga / Semakan Portfolio / ujian amali MARA seperti dinyatakan program');
+  const psychometric=pf('passedPsychometric','Lulus Ujian Kecenderungan (Psychometric Test)');
+  const fiveJuzuk=pf('hafaz5Juzuk','Menghafaz sekurang-kurangnya lima (5) juzuk');
+  const bridging=pf('passedBridging','Lulus program bridging');
+  const pw2=pf('hasPW2','Memiliki perakuan kompetensi Pendawai PW2');
+  const pw4=pf('hasPW4','Memiliki perakuan kompetensi Pendawai PW4');
+  const a1=pf('hasA1','Memiliki perakuan kompetensi Penjaga Jentera Elektrik A1');
+  const relatedCert=pf('hasRelatedCertificate','Memiliki sijil/kelayakan bidang berkaitan seperti dinyatakan program');
+  const relatedSkm3=manual('SKM Tahap 3 dalam bidang berkaitan perlu disahkan terhadap bidang/kod sijil calon.');
+  const svm=manual('Laluan SVM memerlukan PNGK akademik/vokasional dan kompetensi modul seperti yang dinyatakan dalam buku TVETMARA 2026.');
+
+  const opt=(routes,name,requirements,priority=100)=>({routes,name,priority,mode:'all',requirements});
+  const skm2=()=>opt(['skm2','pvma'],'SKM Tahap 2 dalam bidang berkaitan',[{type:'hasSkm2'}],105);
+  const skm3=()=>opt(['skm3'],'SKM Tahap 3 dalam bidang berkaitan',[relatedSkm3],105);
+  const svmOpt=()=>opt(['pvma'],'SVM / laluan vokasional berkaitan',[svm],80);
+  function optionsFor(k){
+    const tech3=()=>opt(['spm','mpv'],'SPM — Matematik + Sains/Vokasional/Teknologi + satu kepujian lain; Lulus BI',[{type:'subjectKey',key:'math',min:'C'},{type:'group',group:'SCI_TECH_VOC',count:1,min:'C'},{type:'credits',count:3,min:'C',scope:'spm'},{type:'subjectKey',key:'bi',min:'E'}],120);
+    const any2=()=>opt(['spm','mpv'],'SPM — dua (2) kepujian mana-mana mata pelajaran',[{type:'credits',count:2,min:'C',scope:'spm'}],115);
+    const any3biMath=()=>opt(['spm','mpv'],'SPM — tiga (3) kepujian + Lulus Bahasa Inggeris dan Matematik',[{type:'credits',count:3,min:'C',scope:'spm'},{type:'subjectKey',key:'bi',min:'E'},{type:'subjectKey',key:'math',min:'E'}],120);
+    if(k==='TECH3') return [tech3(),skm3(),svmOpt()];
+    if(k==='SCIENCE3') return [opt(['spm','mpv'],'SPM — Sains tulen/Sains + Matematik + satu kepujian lain; Lulus BI',[{type:'group',group:'SCI',count:1,min:'C'},{type:'subjectKey',key:'math',min:'C'},{type:'credits',count:3,min:'C',scope:'spm'},{type:'subjectKey',key:'bi',min:'E'}],120),skm3()];
+    if(k==='DESIGN3_INTERVIEW') return [opt(['spm','mpv'],'SPM — 3 kepujian + Lulus BI & Matematik + Temuduga/Portfolio',[{type:'credits',count:3,min:'C',scope:'spm'},{type:'subjectKey',key:'bi',min:'E'},{type:'subjectKey',key:'math',min:'E'},interview],125),skm3()];
+    if(k==='ANY2') return [any2(),skm2(),svmOpt()];
+    if(k==='ANY3_BI_MATH') return [any3biMath(),skm3(),svmOpt()];
+    if(k==='SKM3_ONLY') return [skm3()];
+    if(k==='OPEN_SPM') return [{routes:['spm','mpv'],name:'SPM atau setara',priority:105,mode:'all',requirements:[],noPrerequisite:true},skm2(),svmOpt(),opt(['skm2','pvma'],'Sijil Profesional GIATMARA bidang berkaitan',[pf('professionalRelatedCertificate','Sijil Profesional GIATMARA bidang berkaitan')],95)];
+    if(k==='TWO_GROUP_BI_MATH') return [opt(['spm','mpv'],'SPM — 2 kepujian; sekurang-kurangnya satu Matematik/Sains/Vokasional/Teknologi; Lulus BI dan Matematik',[{type:'group',group:'MATH_SCI_TECH_VOC',count:1,min:'C'},{type:'credits',count:2,min:'C',scope:'spm'},{type:'subjectKey',key:'bi',min:'E'},{type:'subjectKey',key:'math',min:'E'}],120),skm3(),svmOpt()];
+    if(k==='TWO_GROUP') return [opt(['spm','mpv'],'SPM — 2 kepujian; sekurang-kurangnya satu Matematik/Sains/Vokasional/Teknologi',[{type:'group',group:'MATH_SCI_TECH_VOC',count:1,min:'C'},{type:'credits',count:2,min:'C',scope:'spm'}],120),skm2(),svmOpt()];
+    if(k==='DCS_MATH_SCI') return [opt(['spm','mpv'],'SPM — Kepujian Matematik + satu Sains/Vokasional/Teknologi',[{type:'subjectKey',key:'math',min:'C'},{type:'group',group:'SCI_TECH_VOC',count:1,min:'C'}],120),svmOpt()];
+    if(k==='INDUSTRY2_INTERVIEW') return [opt(['spm','mpv'],'SPM — 2 kepujian + syarat wajib program',[{type:'credits',count:2,min:'C',scope:'spm'},interview],120),skm2(),svmOpt()];
+    if(k==='DLA_INTERVIEW') return [opt(['spm','mpv'],'SPM/setara + Lulus Temuduga',[interview],100),skm2(),opt(['skm2','pvma'],'Sijil Profesional GIATMARA bidang berkaitan',[pf('professionalRelatedCertificate','Sijil Profesional GIATMARA bidang berkaitan')],95)];
+    if(k==='TAHFIZ') return [opt(['spm','mpv','pvma','skm2','skm3'],'TVET Tahfiz — hafaz 5 juzuk + bridging',[fiveJuzuk,bridging,{type:'interest'}],130)];
+    if(k==='TECHNO2Y') return [opt(['skm2','pvma'],'Teknousahawan — sijil/SKM2 berkaitan + ujian kecenderungan/temuduga + pengalaman',[relatedCert,psychometric,interview,manual('Sekurang-kurangnya 2 tahun pengalaman dalam bidang berkaitan perlu disahkan.')],120)];
+    if(k==='TECHNO3Y') return [opt(['skm3'],'Teknousahawan — sijil/SKM3 berkaitan + ujian kecenderungan/temuduga + pengalaman',[relatedCert,psychometric,interview,manual('Sekurang-kurangnya 3 tahun pengalaman dalam bidang berkaitan perlu disahkan.')],120)];
+    if(k==='UTE_PW4') return [opt(['skm2','skm3','pvma'],'Teknousahawan Elektrik — sijil berkaitan + PW4 + ujian kecenderungan/temuduga',[relatedCert,pw4,psychometric,interview,pf('pw4NotRegisteredCompany','Sijil Kompetensi PW4 tidak didaftarkan dengan mana-mana syarikat')],125)];
+    if(k==='DCB_ADV') return [opt(['skm3'],'Diploma Lanjutan Penjanaan — diploma berkaitan + A1',[relatedCert,a1,manual('Lulusan diploma elektrik berkaitan/CGPA ≥2.00 dan umur sekurang-kurangnya 18 tahun perlu disahkan.')],125)];
+    if(k==='DCA_ADV') return [opt(['skm3'],'Kompetensi Pengagihan — diploma berkaitan + PW2/PW4',[relatedCert,{type:'any',requirements:[pw2,pw4]},manual('Lulusan diploma/teknologi elektrik berkaitan perlu disahkan.')],125)];
+    if(k==='DCG_PW2') return [opt(['skm2','skm3'],'Kompetensi Elektrik Industri — PW2',[pw2],125)];
+    if(k==='DCM_PW') return [opt(['skm2','pvma'],'Kompetensi Penyelenggaraan — SKM2 berkaitan + PW2/PW4',[{type:'hasSkm2'},{type:'any',requirements:[pw2,pw4]}],125)];
+    return [];
+  }
+
+  const names=new Set(catalog.map(x=>fitNorm(x.name.replace(/ - TVET Tahfiz$/i,''))));
+  const codes=new Set(catalog.map(x=>String(x.code).toUpperCase()));
+  const removed=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i]; if(c.agency!=='MARA')continue;
+    const n=fitNorm(String(c.name||'').replace(/ - TVET TAHFIZ$/i,'')),code=String(c.code||'').toUpperCase();
+    if((codes.has(code)||names.has(n)) && /^DIPLOMA|^ADVANCED DIPLOMA/i.test(String(c.name||''))){removed.push({sourceId:String(c.sourceId||''),name:c.name,inst:c.inst,code:c.code||''});DEFAULT_DATASET.courses.splice(i,1);}
+  }
+
+  const inserted=[];
+  for(const p of catalog) for(const campus of p.campuses){
+    const tahfiz=p.track==='TVET TAHFIZ';
+    const rec={name:p.name,code:p.code,sourceId:`BKT2026-DIP-${p.code}-${slug(campus)}${tahfiz?'-TAHFIZ':''}`,agency:'MARA',inst:`TVETMARA ${campus}`,state:stateOf[campus]||'LAIN-LAIN',
+      level:(p.code==='DCB'?'Diploma Lanjutan':`Diploma ${p.classif}`),months:p.months,verified:VERIFIED,source:SOURCE,sector:'AWAM',programType:tahfiz?'TVET_TAHFIZ':'PROGRAM_PENUH',
+      must:{age:[17,45],citizen:true,bumi:true,healthy:true,...(p.color?{color:true}:{})},pending:[],dataQuality:'VERIFIED',options:optionsFor(p.kind),
+      verificationNote:`v120: TVETMARA Edisi BKT 1.1/2026 halaman ${p.page}. Kod ${p.code}; kluster ${p.cluster}; kampus ${campus}; tempoh ${p.months/12} tahun; klasifikasi ${p.classif}.${p.notes?' '+p.notes:''} Laluan STPM/STAM/APEL/CGPA yang tidak dikutip oleh profil TVETMatch disimpan sebagai maklumat sumber dan tidak digunakan untuk memberi PASS automatik.`,
+      sourceEdition:'TVETMARA Edisi BKT 1.1/2026',sourcePage:p.page,canonicalDiploma2026:true,track:p.track||'PERDANA'};
+    DEFAULT_DATASET.courses.push(rec);inserted.push(rec);
+  }
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses); resetDataset();
+  function audit(){
+    const live=DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA'&&c.canonicalDiploma2026===true);
+    const ids=live.map(c=>String(c.sourceId));const dup=ids.filter((x,i,a)=>a.indexOf(x)!==i);
+    const tahfiz=live.filter(c=>c.programType==='TVET_TAHFIZ');
+    const tech3=live.filter(c=>['DAF','DAE','DTC','DEP','DKS','DKA','DLP','DPM'].includes(c.code));
+    const rows=[
+      {name:'Katalog Diploma TVETMARA halaman 12-37 dimuat',pass:catalog.length>=100,detail:catalog.length},
+      {name:'Rekod kampus canonical Diploma dimuat',pass:live.length>=120,detail:live.length},
+      {name:'Tiada duplicate sourceId Diploma canonical',pass:dup.length===0,detail:dup},
+      {name:'TVET Tahfiz dipisahkan sebagai laluan khas',pass:tahfiz.length>=8,detail:tahfiz.length},
+      {name:'Program 3-kepujian teknikal mempunyai Matematik + Sains/Vok/Tek + BI',pass:tech3.every(c=>JSON.stringify(c.options).includes('SCI_TECH_VOC')&&JSON.stringify(c.options).includes('math')&&JSON.stringify(c.options).includes('bi')),detail:tech3.length},
+      {name:'Program kompetensi khas tidak diberi PASS kosong',pass:live.filter(c=>['DCB','DCA','DCG','DCM','UTE'].includes(c.code)).every(c=>c.options.length&&JSON.stringify(c.options).includes('profileFlag')),detail:'DCB/DCA/DCG/DCM/UTE'},
+      {name:'Semua rekod canonical mempunyai halaman sumber',pass:live.every(c=>c.sourcePage>=12&&c.sourcePage<=37),detail:live.filter(c=>!c.sourcePage).length}
+    ];
+    return {version:'v120',pass:rows.every(x=>x.pass),catalogRows:catalog.length,campusRecords:live.length,tahfizRecords:tahfiz.length,removedLegacy:removed.length,rows,removed};
+  }
+  window.TVETMATCH_V120_MARA_DIPLOMA={version:'v120',catalog,insertedCount:inserted.length,removedLegacy:removed,audit};
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v120 TVETMARA DIPLOMA BKT 1.1/2026',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v120 TVETMARA diploma audit error',e)}},0));
+})();
+</script>
+
+<script id="v121-tvetmara-special-condition-hardening">
+/* v121 — TVETMARA BKT 1.1/2026 Special Condition Hardening.
+   Resolves v120 special-evidence dead ends, applies source-specific age/credential guards,
+   and makes profileFlag conditions answerable through Soalan Susulan without weakening eligibility. */
+(()=>{
+  const VERSION='v121';
+  const VERIFIED='2026-09-15';
+  // Validator v15 omitted composite requirement names although the compiler supports them.
+  KNOWN_REQUIREMENT_TYPES.add('any');KNOWN_REQUIREMENT_TYPES.add('all');
+  const canonical=()=>DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA'&&c.canonicalDiploma2026===true);
+  const pf=(key,label)=>({type:'profileFlag',key,label});
+  const anyReq=(requirements)=>({type:'any',requirements});
+
+  const extraFields={
+    relatedGeneralCertificate:'Sijil / kelayakan dalam bidang berkaitan',
+    relatedSKM3:'SKM Tahap 3 saya dalam bidang berkaitan',
+    experience2YearsRelated:'Pengalaman sekurang-kurangnya 2 tahun dalam bidang berkaitan',
+    experience3YearsRelated:'Pengalaman sekurang-kurangnya 3 tahun dalam bidang berkaitan',
+    hafaz5Juzuk:'Menghafaz sekurang-kurangnya 5 juzuk',
+    passedBridging:'Lulus Program Bridging TVET Tahfiz',
+    normalBMI:'BMI normal (jika program mensyaratkan)',
+    noAsthma:'Tiada penyakit asma (jika program mensyaratkan)'
+  };
+
+  function installEvidenceFields(){
+    const box=document.querySelector('#specialEvidenceDetails .checks');
+    if(!box)return;
+    for(const [id,label] of Object.entries(extraFields)){
+      if(document.getElementById(id))continue;
+      const el=document.createElement('label');el.className='check';
+      el.innerHTML=`<input type="checkbox" id="${id}"><span>${label}</span>`;
+      box.appendChild(el);
+    }
+    for(const id of Object.keys(extraFields)){
+      V97_SPECIAL_FIELD_MAP[id]=id;
+      const el=document.getElementById(id);if(!el||el.dataset.v121Touch==='1')continue;
+      el.dataset.v121Touch='1';
+      el.addEventListener('change',()=>v97MarkSpecialTouched(id));
+    }
+  }
+  installEvidenceFields();
+
+  const v121ProfileBase=profile;
+  profile=function(){
+    const p=v121ProfileBase();
+    for(const id of Object.keys(extraFields))p[id]=V97_SPECIAL_TOUCHED.has(id)?ck(id):null;
+    p.stPW2Flag=p.stCredential==null?null:p.stCredential==='PW2';
+    p.stPW4Flag=p.stCredential==null?null:p.stCredential==='PW4';
+    p.stA1Flag=p.stCredential==null?null:p.stCredential==='A1';
+    return p;
+  };
+
+  const v121AuditProfileCoreBase=auditProfileCore;
+  auditProfileCore=function(p){
+    const out=v121AuditProfileCoreBase(p);
+    for(const id of Object.keys(extraFields))out[id]=p[id]??null;
+    out.stPW2Flag=p.stPW2Flag??null;out.stPW4Flag=p.stPW4Flag??null;out.stA1Flag=p.stA1Flag??null;
+    return out;
+  };
+
+  const v121AdaptiveRuleQuestionsBase=adaptiveRuleQuestions;
+  adaptiveRuleQuestions=function(rule,p){
+    if(rule?.op==='profileFlag'&&v97Unknown(p?.[rule.key])){
+      const target={stPW2Flag:'stCredential',stPW4Flag:'stCredential',stA1Flag:'stCredential'}[rule.key]||rule.key;
+      if(document.getElementById(target))return [adaptiveQuestion(`profile:${rule.key}`,rule.label||rule.key,'Syarat khas ini diperlukan untuk menentukan kelayakan dengan selamat.',target,'','SPECIAL')];
+    }
+    return v121AdaptiveRuleQuestionsBase(rule,p);
+  };
+
+  function replaceReq(req){
+    if(!req||typeof req!=='object')return req;
+    if(req.type==='manual'){
+      const t=String(req.text||'');
+      if(/SKM Tahap 3 dalam bidang berkaitan/i.test(t))return pf('relatedSKM3','SKM Tahap 3 dalam bidang berkaitan');
+      if(/Laluan SVM/i.test(t))return pf('svmMaraEligible','SVM memenuhi syarat PNGK akademik/vokasional dan kompetensi modul program');
+      if(/2 tahun pengalaman/i.test(t))return pf('experience2YearsRelated','Sekurang-kurangnya 2 tahun pengalaman dalam bidang berkaitan');
+      if(/3 tahun pengalaman/i.test(t))return pf('experience3YearsRelated','Sekurang-kurangnya 3 tahun pengalaman dalam bidang berkaitan');
+      if(/diploma elektrik berkaitan/i.test(t)||/diploma\/teknologi elektrik berkaitan/i.test(t))return pf('relatedElectricalCertificate','Kelayakan / diploma elektrik berkaitan yang memenuhi syarat program');
+      return req;
+    }
+    if(req.type==='profileFlag'){
+      const map={
+        hasRelatedCertificate:'relatedGeneralCertificate',
+        hafaz5Juzuk:'hafaz5Juzuk',
+        passedBridging:'passedBridging',
+        hasPW2:'stPW2Flag',
+        hasPW4:'stPW4Flag',
+        hasA1:'stA1Flag'
+      };
+      if(map[req.key])return {...req,key:map[req.key]};
+    }
+    if(Array.isArray(req.requirements))return {...req,requirements:req.requirements.map(replaceReq)};
+    return req;
+  }
+  function addUniqueRequirement(option,req){
+    option.requirements=option.requirements||[];
+    const key=req.type==='profileFlag'?`pf:${req.key}`:JSON.stringify(req);
+    const exists=option.requirements.some(r=>(r.type==='profileFlag'?`pf:${r.key}`:JSON.stringify(r))===key);
+    if(!exists)option.requirements.push(req);
+  }
+
+  const age18Codes=new Set(['DGP','DCB','DCG','DCN','DGG','GMD','DCW','DTU']);
+  const designInterviewCodes=new Set(['DSB','DSD','DSJ','DSP','DSF','DSV','DSM','DSK','DLA']);
+  for(const c of canonical()){
+    c.options=(c.options||[]).map(o=>({...o,requirements:(o.requirements||[]).map(replaceReq)}));
+    if(age18Codes.has(c.code))c.must={...(c.must||{}),age:[18,45]};
+
+    if(designInterviewCodes.has(c.code)&&c.programType!=='TVET_TAHFIZ')for(const o of c.options)addUniqueRequirement(o,pf('passedInterview','Lulus Temuduga / Semakan Portfolio MARA'));
+
+    if(c.code==='IAC')for(const o of c.options){addUniqueRequirement(o,pf('passedInterview','Lulus sesi temuduga'));addUniqueRequirement(o,pf('normalBMI','BMI normal'));addUniqueRequirement(o,pf('noAsthma','Sihat tubuh badan dan tiada penyakit asma'));}
+    if(c.code==='DIC')for(const o of c.options)addUniqueRequirement(o,pf('passedInterview','Lulus sesi temuduga'));
+
+    if(c.code==='DCB'){
+      c.must={...(c.must||{}),age:[18,45],stCredentialAny:['A1']};
+      c.options=[{routes:['skm3'],name:'Kelayakan elektrik berkaitan + Perakuan A1',priority:130,mode:'all',requirements:[pf('relatedElectricalCertificate','Kelayakan / diploma elektrik berkaitan'),pf('stA1Flag','Perakuan Kekompetenan Penjaga Jentera Elektrik A1')]}];
+    }
+    if(c.code==='DCA'){
+      c.must={...(c.must||{}),stCredentialAny:['PW2','PW4']};
+      c.options=[{routes:['skm3'],name:'Kelayakan elektrik berkaitan + PW2/PW4',priority:130,mode:'all',requirements:[pf('relatedElectricalCertificate','Kelayakan / diploma teknologi elektrik berkaitan'),anyReq([pf('stPW2Flag','Perakuan Pendawai PW2'),pf('stPW4Flag','Perakuan Pendawai PW4')])]}];
+    }
+    if(c.code==='DCG'){
+      c.must={...(c.must||{}),age:[18,45],stCredentialAny:['PW2']};
+      c.options=[{routes:['skm2','skm3'],name:'Perakuan Kekompetenan PW2',priority:130,mode:'all',requirements:[pf('stPW2Flag','Memiliki perakuan kompetensi Pendawai PW2')]}];
+    }
+    if(c.code==='DCM'){
+      c.must={...(c.must||{}),stCredentialAny:['PW2','PW4']};
+      c.options=[{routes:['skm2','pvma'],name:'SKM Tahap 2 berkaitan + PW2/PW4',priority:130,mode:'all',requirements:[{type:'hasSkm2'},anyReq([pf('stPW2Flag','Perakuan Pendawai PW2'),pf('stPW4Flag','Perakuan Pendawai PW4')])]}];
+    }
+    if(c.code==='UTE'){
+      c.must={...(c.must||{}),stCredentialAny:['PW4']};
+      c.options=[{routes:['skm2','skm3','pvma'],name:'Sijil bidang berkaitan + PW4 + ujian kecenderungan/temuduga',priority:135,mode:'all',requirements:[pf('relatedElectricalCertificate','Sijil / kelayakan bidang elektrik berkaitan'),pf('stPW4Flag','Memiliki Sijil Pendawai PW4'),pf('passedPsychometric','Lulus Ujian Kecenderungan (Psychometric Test)'),pf('passedInterview','Lulus temuduga'),pf('pw4NotRegisteredCompany','PW4 tidak didaftarkan dengan mana-mana syarikat')]}];
+    }
+    c.verified=VERIFIED;
+    c.verificationNote=(c.verificationNote||'')+' v121: syarat khas, umur minimum dan bukti kompetensi dikeraskan; bukti yang belum dijawab kekal INPUT_REQUIRED/SEMAK dan tidak boleh memberi LAYAK palsu.';
+  }
+
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);resetDataset();
+
+  function reqKeys(req,out=[]){if(!req||typeof req!=='object')return out;if(req.type==='profileFlag')out.push(req.key);if(Array.isArray(req.requirements))req.requirements.forEach(r=>reqKeys(r,out));return out}
+  function audit(){
+    const live=canonical(),brokenKeys=new Set(['hasPW2','hasPW4','hasA1','hasRelatedCertificate']);
+    const broken=[];let manualCount=0,profileFlags=0;
+    for(const c of live)for(const o of c.options||[])for(const r of o.requirements||[]){
+      const keys=reqKeys(r);profileFlags+=keys.length;if(keys.some(k=>brokenKeys.has(k)))broken.push({code:c.code,name:c.name,keys});
+      const scan=x=>{if(!x||typeof x!=='object')return;if(x.type==='manual')manualCount++;(x.requirements||[]).forEach(scan)};scan(r);
+    }
+    const byCode=code=>live.filter(c=>c.code===code);
+    const age18=[...age18Codes].flatMap(byCode);
+    const rows=[
+      {name:'Tiada profileFlag v120 yang tidak boleh dijawab',pass:broken.length===0,detail:broken},
+      {name:'Program umur minimum 18 tahun dikunci',pass:age18.length>0&&age18.every(c=>c.must?.age?.[0]===18),detail:age18.length},
+      {name:'IAC mewajibkan temuduga + BMI normal + tiada asma',pass:byCode('IAC').every(c=>c.options.every(o=>['passedInterview','normalBMI','noAsthma'].every(k=>JSON.stringify(o.requirements).includes(k)))),detail:byCode('IAC').length},
+      {name:'DIC mewajibkan temuduga untuk semua laluan',pass:byCode('DIC').every(c=>c.options.every(o=>JSON.stringify(o.requirements).includes('passedInterview'))),detail:byCode('DIC').length},
+      {name:'Kompetensi elektrik DCB/DCA/DCG/DCM/UTE menggunakan Perakuan ST yang boleh dinilai',pass:['DCB','DCA','DCG','DCM','UTE'].every(code=>byCode(code).every(c=>Array.isArray(c.must?.stCredentialAny)&&c.must.stCredentialAny.length)),detail:'DCB/DCA/DCG/DCM/UTE'},
+      {name:'Temuduga/portfolio program reka bentuk terpakai pada semua laluan',pass:[...designInterviewCodes].every(code=>byCode(code).filter(c=>c.programType!=='TVET_TAHFIZ').every(c=>c.options.every(o=>JSON.stringify(o.requirements).includes('passedInterview')))),detail:[...designInterviewCodes].length},
+      {name:'Manual rule canonical Diploma dikurangkan',pass:manualCount===0,detail:manualCount},
+      {name:'ProfileFlag canonical Diploma mempunyai medan/target yang boleh dijawab',pass:profileFlags>0,detail:profileFlags},
+      {name:'Semua rekod Diploma canonical diterima pipeline selepas hardening',pass:RAW_COURSES.filter(c=>c.canonicalDiploma2026===true).length===live.length&&RAW_COURSES.filter(c=>c.canonicalDiploma2026===true).every(c=>c.pipelineStatus!=='REJECT'),detail:RAW_COURSES.filter(c=>c.canonicalDiploma2026===true).length}
+    ];
+    return {version:VERSION,pass:rows.every(x=>x.pass),canonicalRecords:live.length,manualCount,profileFlags,rows};
+  }
+  window.TVETMATCH_V121_MARA_HARDENING={version:VERSION,audit};
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{installEvidenceFields();if(window.TVETMATCH_PRODUCTION){if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all');return;}const q=audit();console.log('v121 TVETMARA SPECIAL CONDITION HARDENING',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v121 MARA hardening audit error',e)}},0));
+})();
+</script>
+
+
+<script id="v122-tvetmara-canonical-lock">
+/* v122 — TVETMARA 2026 Canonical Lock.
+   Source basis remains the user-supplied TVETMARA Edisi BKT 1.1/2026 used by v119/v120.
+   Purpose: prevent legacy MARA portal records from co-existing with the current canonical catalogue.
+   GIATMARA and every non-MARA agency are intentionally untouched. */
+(()=>{
+  const VERSION='v122';
+  const EXPECTED_CERT=28, EXPECTED_DIP=158, EXPECTED_MARA=186;
+  const beforeNonMara=DEFAULT_DATASET.courses.filter(c=>c.agency!=='MARA').length;
+  const removedLegacy=[],removedDuplicate=[];
+  const isCanonical=c=>c?.agency==='MARA'&&(c.canonical2026===true||c.canonicalDiploma2026===true);
+
+  // 1) Hard lock: the BKT 1.1/2026 catalogue is the only active MARA/TVETMARA catalogue.
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i];
+    if(c.agency==='MARA'&&!isCanonical(c)){
+      removedLegacy.push({sourceId:String(c.sourceId||''),code:c.code||'',name:c.name||'',inst:c.inst||''});
+      DEFAULT_DATASET.courses.splice(i,1);
+    }
+  }
+
+  // 2) Defensive exact-sourceId + semantic de-duplication inside the canonical catalogue.
+  // Track is part of the semantic key so PERDANA and TVET TAHFIZ may legitimately coexist.
+  const seenId=new Set(),seenSemantic=new Set();
+  const norm=s=>String(s||'').toUpperCase().normalize('NFKD').replace(/[^A-Z0-9]+/g,' ').trim().replace(/\s+/g,' ');
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i];
+    if(!isCanonical(c))continue;
+    const id=String(c.sourceId||'');
+    const track=String(c.track||c.programType||'PERDANA').toUpperCase();
+    const key=[String(c.code||'').toUpperCase(),norm(c.inst),track].join('|');
+    const dup=(id&&seenId.has(id))||seenSemantic.has(key);
+    if(dup){
+      removedDuplicate.push({sourceId:id,code:c.code||'',name:c.name||'',inst:c.inst||'',track});
+      DEFAULT_DATASET.courses.splice(i,1);
+      continue;
+    }
+    if(id)seenId.add(id); seenSemantic.add(key);
+  }
+
+  // Final rule/registry sync must happen after the destructive cleanup.
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+
+  function audit(){
+    const mara=DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA');
+    const cert=mara.filter(c=>c.canonical2026===true);
+    const dip=mara.filter(c=>c.canonicalDiploma2026===true);
+    const noncanonical=mara.filter(c=>!isCanonical(c));
+    const ids=mara.map(c=>String(c.sourceId||''));
+    const duplicateIds=[...new Set(ids.filter((x,i,a)=>x&&a.indexOf(x)!==i))];
+    const semantic=new Map(),semanticDup=[];
+    for(const c of mara){
+      const track=String(c.track||c.programType||'PERDANA').toUpperCase();
+      const key=[String(c.code||'').toUpperCase(),norm(c.inst),track].join('|');
+      if(semantic.has(key))semanticDup.push({key,first:semantic.get(key),second:String(c.sourceId||'')});
+      else semantic.set(key,String(c.sourceId||''));
+    }
+    const numericLegacy=mara.filter(c=>/^\d+$/.test(String(c.sourceId||'')));
+    const editionBad=mara.filter(c=>c.sourceEdition!=='TVETMARA Edisi BKT 1.1/2026');
+    const pageBad=cert.filter(c=>!(c.sourcePage>=4&&c.sourcePage<=10)).concat(dip.filter(c=>!(c.sourcePage>=12&&c.sourcePage<=37)));
+    const afterNonMara=DEFAULT_DATASET.courses.filter(c=>c.agency!=='MARA').length;
+    const rows=[
+      {name:'TVETMARA canonical Sijil kekal 28 rekod kampus',pass:cert.length===EXPECTED_CERT,detail:cert.length},
+      {name:'TVETMARA canonical Diploma kekal 158 rekod kampus/laluan',pass:dip.length===EXPECTED_DIP,detail:dip.length},
+      {name:'Jumlah MARA runtime dikunci pada 186 rekod canonical',pass:mara.length===EXPECTED_MARA,detail:mara.length},
+      {name:'Tiada MARA legacy/noncanonical aktif',pass:noncanonical.length===0,detail:noncanonical.map(c=>String(c.sourceId||''))},
+      {name:'Tiada sourceId numeric lama MARA',pass:numericLegacy.length===0,detail:numericLegacy.map(c=>String(c.sourceId||''))},
+      {name:'Tiada duplicate sourceId MARA',pass:duplicateIds.length===0,detail:duplicateIds},
+      {name:'Tiada duplicate semantic code+kampus+track',pass:semanticDup.length===0,detail:semanticDup},
+      {name:'Semua MARA menggunakan edisi BKT 1.1/2026',pass:editionBad.length===0,detail:editionBad.length},
+      {name:'Semua halaman sumber canonical dalam julat katalog',pass:pageBad.length===0,detail:pageBad.length},
+      {name:'Agensi bukan MARA tidak berubah',pass:afterNonMara===beforeNonMara,detail:{before:beforeNonMara,after:afterNonMara}}
+    ];
+    return {version:VERSION,pass:rows.every(x=>x.pass),mara:mara.length,certificate:cert.length,diploma:dip.length,removedLegacy:removedLegacy.length,removedDuplicate:removedDuplicate.length,rows,removedLegacyRecords:removedLegacy,removedDuplicateRecords:removedDuplicate};
+  }
+  window.TVETMATCH_V122_MARA_CANONICAL_LOCK={version:VERSION,expected:{certificate:EXPECTED_CERT,diploma:EXPECTED_DIP,total:EXPECTED_MARA},removedLegacy,removedDuplicate,audit};
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v122 TVETMARA CANONICAL LOCK',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v122 MARA canonical lock audit error',e)}},0));
+})();
+</script>
+
+
+<script id="v123-jtm-kota-samarahan">
+/* v123 — JTM Kota Samarahan Catalogue Expansion.
+   Source basis: current TVET MADANI institution catalogue and official course detail pages, verified 2026-09-17.
+   Adds the 7 current Sijil Penuh programmes for ADTEC JTM Kampus Kota Samarahan without changing v122 MARA canonical records. */
+(()=>{
+  const VERSION='v123';
+  const VERIFIED='2026-09-17';
+  const INST='ADTEC JTM Kampus Kota Samarahan (ILP Kota Samarahan)';
+  const STATE='SARAWAK';
+  const BASE='https://www.tvet.gov.my/awam-kursus/kursus?id_kursus=';
+
+  // v123 runtime integrity repair for the canonical TVETMARA catalogue introduced in v120-v122.
+  // tvetmara.edu.my is an official MARA TVET source but was absent from the original import allow-list.
+  OFFICIAL_SOURCE_HOSTS.add('www.tvetmara.edu.my');
+  OFFICIAL_SOURCE_HOSTS.add('tvetmara.edu.my');
+  // TVET Tahfiz is a track within the full Diploma catalogue; keep the track marker but normalize
+  // programType to PROGRAM_PENUH so the public-TVET pipeline and result filter do not drop it.
+  for(const c of DEFAULT_DATASET.courses){
+    if(c.agency==='MARA'&&(c.canonical2026===true||c.canonicalDiploma2026===true)&&c.programType==='TVET_TAHFIZ'){
+      c.track=c.track||'TVET TAHFIZ';
+      c.programType='PROGRAM_PENUH';
+    }
+  }
+  const commonMust={age:[17,35],citizen:true,healthy:true,meetsCourseDisabilityCondition:true};
+  const commonOptions=()=>[
+    {routes:['spm','pvma','mpv'],name:'Tamat Tingkatan 5 — BM + Sejarah minimum G',priority:100,mode:'all',requirements:[
+      {type:'school',level:5},{type:'subjectKey',key:'bm',min:'G'},{type:'subjectKey',key:'sej',min:'G'}
+    ]},
+    {routes:['nospm'],name:'Tiada Pendidikan Formal / Minat + Membaca Menulis',priority:90,mode:'all',requirements:[
+      {type:'basicSkills',need:{read:true,write:true,count:false}},{type:'interest'}
+    ]}
+  ];
+  const rows=[
+    {
+      name:'Sijil Teknologi Automotif Servis',code:'STAS03',sourceId:'7969',nossCode:'G452-002-3:2018',
+      credentialFull:'TVET(S1)/K01016/G452-002-3:2018-ST-A',must:{...commonMust},options:commonOptions()
+    },
+    {
+      name:'Sijil Teknologi Elektrik Pendawaian Tiga Fasa',code:'SMET03',sourceId:'34001',nossCode:'F432-005-3:2019',
+      credentialFull:'TVET(S1)/K01016/F432-005-3:2019-ST-A',
+      must:{...commonMust,color:true},
+      options:[{routes:['spm','pvma','mpv'],name:'Laluan SPM — BM/Sejarah + Matematik + Sains/Teknikal minimum E',priority:110,mode:'all',requirements:[
+        {type:'fixedSubjects',items:[{code:'1103',min:'E'},{code:'1249',min:'E'}]},
+        {type:'codePool',items:[{code:'1449',min:'E'},{code:'3472',min:'E'}],count:1,min:'E',scope:'spm',note:'Lulus Matematik atau Matematik Tambahan'},
+        {type:'codePool',items:[{code:'1511',min:'E'},{code:'4561',min:'E'},{code:'4531',min:'E'},{code:'4541',min:'E'},{code:'3762',min:'E'},{code:'7104',min:'E'},{code:'7109',min:'E'}],count:1,min:'E',scope:'spm',note:'Lulus satu subjek Sains / Sains Tambahan / Fizik / Kimia / Teknikal yang disenaraikan'}
+      ]}]
+    },
+    {
+      name:'Sijil Teknologi Fabrikasi Struktur Logam (Minyak dan Gas)',code:'SWFL03',sourceId:'36933',nossCode:'OG-011-3:2011',
+      credentialFull:'TVET(S1)/K01016/OG-011-3:2011-MT-C',must:{...commonMust},options:commonOptions()
+    },
+    {
+      name:'Sijil Teknologi Kimpalan',code:'SWKA03',sourceId:'36927',nossCode:'C259-008-3:2022',
+      credentialFull:'TVET(S1)/K01016/C259-008-3:2022-MT-A',must:{...commonMust},options:commonOptions()
+    },
+    {
+      name:'Sijil Teknologi Mekatronik',code:'SEME03',sourceId:'34004',nossCode:'MC-091-3:2016',
+      credentialFull:'TVET(S1)/K01016/MC-091-3:2016-ST-C',must:{...commonMust,color:true},options:commonOptions()
+    },
+    {
+      name:'Sijil Teknologi Pemasangan Paip Minyak dan Gas',code:'SWPM03',sourceId:'36930',nossCode:'OG-010-3:2011',
+      credentialFull:'TVET(S1)/K01016/OG-010-3:2011-ST-B',must:{...commonMust},options:commonOptions()
+    },
+    {
+      name:'Sijil Teknologi Pembuatan Pemesinan',code:'SFPP03',sourceId:'33998',nossCode:'C259-006-3:2020',
+      credentialFull:'TVET(S1)/K01016/C259-006-3:2020-ST-A',must:{...commonMust},options:commonOptions()
+    }
+  ].map(c=>({
+      ...c,agency:'JTM',inst:INST,state:STATE,level:'SKM Tahap 3',months:27,verified:VERIFIED,
+      source:BASE+c.sourceId,sector:'AWAM',programType:'PROGRAM_PENUH',pending:[],dataQuality:'VERIFIED',pipelineStatus:'VERIFIED',
+      verificationNote:'v123: disahkan daripada katalog institusi dan halaman kursus rasmi TVET MADANI semasa. Syarat ketidakupayaan yang menyukarkan kerja amali dimodelkan sebagai bukti khas tri-state; syarat yang belum dijawab tidak menghasilkan LAYAK palsu.'
+  }));
+
+  const targetIds=new Set(rows.map(c=>String(c.sourceId)));
+  const removedExisting=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    if(targetIds.has(String(DEFAULT_DATASET.courses[i].sourceId||''))){
+      removedExisting.push(String(DEFAULT_DATASET.courses[i].sourceId));
+      DEFAULT_DATASET.courses.splice(i,1);
+    }
+  }
+  DEFAULT_DATASET.courses.push(...rows);
+
+  // Final sync after expansion.
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+
+  function audit(){
+    const live=DEFAULT_DATASET.courses.filter(c=>targetIds.has(String(c.sourceId||'')));
+    const sourceIds=DEFAULT_DATASET.courses.map(c=>String(c.sourceId||''));
+    const duplicateIds=[...new Set(sourceIds.filter((id,i,a)=>id&&a.indexOf(id)!==i))];
+    const runtime=live.map(c=>courses.find(x=>String(x.sourceId)===String(c.sourceId))).filter(Boolean);
+    const mara=DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA');
+    const rowsAudit=[
+      {name:'7 program Kota Samarahan aktif',pass:live.length===7,detail:live.length},
+      {name:'Semua 7 rekod VERIFIED + tanpa pending',pass:live.every(c=>c.dataQuality==='VERIFIED'&&!(c.pending||[]).length),detail:live.map(c=>c.sourceId)},
+      {name:'Semua 7 program tempoh 27 bulan',pass:live.every(c=>c.months===27),detail:live.map(c=>c.months)},
+      {name:'Semua sourceId unik seluruh dataset',pass:duplicateIds.length===0,detail:duplicateIds},
+      {name:'Semua 7 rekod masuk runtime',pass:runtime.length===7,detail:runtime.length},
+      {name:'Registry hash sepadan untuk 7 rekod',pass:runtime.length===7&&runtime.every(c=>compiledRuleHashMatchesRegistry(c,registryBinding(String(c.sourceId)))),detail:runtime.map(c=>c.sourceId)},
+      {name:'MARA canonical v122 kekal 186',pass:mara.length===186,detail:mara.length},
+      {name:'Semua 406 rekod aktif diterima runtime selepas pembaikan pipeline',pass:RAW_COURSES.length===DEFAULT_DATASET.courses.length&&courses.length===DEFAULT_DATASET.courses.length,detail:{dataset:DEFAULT_DATASET.courses.length,raw:RAW_COURSES.length,runtime:courses.length}},
+      {name:'Semua trek TVET Tahfiz kekal aktif sebagai PROGRAM_PENUH + track khas',pass:mara.filter(c=>c.track==='TVET TAHFIZ').every(c=>c.programType==='PROGRAM_PENUH'),detail:mara.filter(c=>c.track==='TVET TAHFIZ').length},
+      {name:'Elektrik Tiga Fasa ada 2 kumpulan pilihan subjek rasmi',pass:(live.find(c=>c.sourceId==='34001')?.options?.[0]?.requirements||[]).filter(r=>r.type==='codePool').length===2,detail:'Math/Add Math + Sains/Teknikal'},
+      {name:'Elektrik + Mekatronik kekal syarat rabun warna',pass:['34001','34004'].every(id=>live.find(c=>c.sourceId===id)?.must?.color===true),detail:['34001','34004']}
+    ];
+    return {version:VERSION,pass:rowsAudit.every(x=>x.pass),added:live.length,total:DEFAULT_DATASET.courses.length,jtm:DEFAULT_DATASET.courses.filter(c=>c.agency==='JTM').length,removedExisting,rows:rowsAudit};
+  }
+  window.TVETMATCH_V123_JTM_KOTA_SAMARAHAN={version:VERSION,sourceIds:[...targetIds],audit};
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v123 JTM KOTA SAMARAHAN',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v123 Kota Samarahan audit error',e)}},0));
+})();
+</script>
+
+
+<script id="v124-runtime-review-cleanup">
+/* v124 — Runtime REVIEW cleanup + stale offering removal.
+   Current official TVET MADANI pages verified 2026-09-17. */
+(()=>{
+  const VERSION='v124',VERIFIED='2026-09-17';
+  const byId=id=>DEFAULT_DATASET.courses.find(c=>String(c.sourceId)===String(id));
+  const allRoutes=['spm','pvma','skm2','skm3','mpv','nospm'];
+
+  // 30450 — current Tangkak welding criteria, removing legacy manual placeholders.
+  const weld=byId('30450');
+  if(weld){
+    weld.name='Sijil Teknologi Kimpalan';weld.code='SWKA03';weld.level='SKM Tahap 3';weld.months=27;
+    weld.verified=VERIFIED;weld.source='https://www.tvet.gov.my/awam-kursus/kursus?id_kursus=30450';weld.dataQuality='VERIFIED';weld.pending=[];
+    weld.nossCode='MC-024-3:2012';
+    weld.must={age:[17,35],citizen:true,meetsCourseDisabilityCondition:true};
+    weld.options=[
+      {routes:['spm','pvma','mpv'],name:'Tamat Tingkatan 5 — BM + Sejarah minimum G',priority:110,mode:'all',requirements:[
+        {type:'school',level:5},{type:'subjectKey',key:'bm',min:'G'},{type:'subjectKey',key:'sej',min:'G'}
+      ]},
+      {routes:allRoutes,name:'Laluan kemahiran asas — 3M + sihat + tiada rabun warna',priority:100,mode:'all',requirements:[
+        {type:'basicSkills',need:{read:true,write:true,count:true}},
+        {type:'profileFlag',key:'healthy',label:'Sihat tubuh badan'},
+        {type:'profileFlag',key:'colorok',label:'Tiada masalah penglihatan atau rabun warna'}
+      ]},
+      {routes:['nospm'],name:'Tidak bersekolah / tiada pendidikan formal — kemahiran 3M',priority:90,mode:'all',requirements:[
+        {type:'basicSkills',need:{read:true,write:true,count:true}}
+      ]}
+    ];
+    weld.verificationNote='v124: halaman rasmi semasa menyenaraikan tiga pilihan persekolahan/kemahiran: Tingkatan 5 dengan BM+Sejarah G, laluan 3M bersama sihat/tiada rabun warna, atau tiada pendidikan formal/minat dengan kemahiran membaca-menulis-mengira. Syarat ketidakupayaan kerja amali kekal universal.';
+  }
+
+  // 33644 — GIATMARA Beruas: SKM2 bidang pakaian is an explicit mandatory prerequisite.
+  const fashion=byId('33644');
+  if(fashion){
+    fashion.verified=VERIFIED;fashion.source='https://www.tvet.gov.my/awam-kursus/kursus?id_kursus=33644';fashion.dataQuality='VERIFIED';fashion.pending=[];fashion.months=6;fashion.level='SKM Tahap 3';
+    fashion.must={age:[15,70],citizen:true,bumi:true,healthy:true};
+    fashion.options=[{routes:['skm2','pvma'],name:'SKM Tahap 2 bidang pembuatan pakaian wanita',priority:120,mode:'all',requirements:[
+      {type:'skmCodes',codes:['C141-005-2:2021','TA-011-2:2012','K-012-2','K-011-2','K-010-2']},
+      {type:'basicSkills',need:{read:true,write:true,count:false}},
+      {type:'interest'}
+    ]}];
+    fashion.verificationNote='v124: portal rasmi menetapkan umur 15-70, sihat, warganegara Malaysia, Bumiputera dan SKM Tahap 2 bidang pakaian yang disenaraikan. Kod SKM dimodelkan terus supaya syarat tidak lagi menjadi manual REVIEW.';
+  }
+
+  // 14039 — GIATMARA Kubang Pasu: structured main criteria say Tidak Tamat Sekolah, with no academic subject threshold.
+  const gmWeld=byId('14039');
+  if(gmWeld){
+    gmWeld.verified=VERIFIED;gmWeld.source='https://www.tvet.gov.my/awam-kursus/kursus?id_kursus=14039';gmWeld.dataQuality='VERIFIED';gmWeld.pending=[];gmWeld.months=9;gmWeld.level='SKM Tahap 3';
+    gmWeld.must={age:[15,70],citizen:true,bumi:true,healthy:true};
+    gmWeld.options=[{routes:['nospm'],name:'Tidak Tamat Sekolah — tiada ambang akademik tambahan pada kriteria utama',priority:100,mode:'all',requirements:[],noPrerequisite:true}];
+    gmWeld.verificationNote='v124: kriteria utama portal rasmi menyatakan sihat, umur 15-70, Tidak Tamat Sekolah, Bumiputera dan warganegara. Konflik Lain-lain Maklumat tentang pensijilan/tempoh tidak digunakan untuk menambah syarat kemasukan yang tidak dinyatakan pada kriteria utama.';
+  }
+
+  // Remove records explicitly marked by the official portal as no longer offered.
+  const retired=new Set(['31477','34067','34070','14168','14258','14498','14510','14618','14669','14678','14690','14720','33765','34049','35130','38181','43842','43890','45274','48605','48686','11486','11507','11705','11960','12173','12353','12536','7075','7084','7138','7183','7195','7210']);
+  const removed=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i],id=String(c.sourceId||'');
+    if(retired.has(id)){removed.push({sourceId:id,name:c.name,inst:c.inst});DEFAULT_DATASET.courses.splice(i,1)}
+  }
+
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+
+  function audit(){
+    const ids=DEFAULT_DATASET.courses.map(c=>String(c.sourceId||''));
+    const dup=[...new Set(ids.filter((x,i,a)=>x&&a.indexOf(x)!==i))];
+    const reviews=RAW_COURSES.filter(c=>c.pipelineStatus==='REVIEW');
+    const rejected=lastImportReport?.rejected||0;
+    const patched=['30450','33644','14039'];
+    const patchedRuntime=patched.map(id=>courses.find(c=>String(c.sourceId)===id)).filter(Boolean);
+    const rows=[
+      {name:'DEFAULT / RAW / runtime sepadan',pass:DEFAULT_DATASET.courses.length===RAW_COURSES.length&&RAW_COURSES.length===courses.length,detail:{dataset:DEFAULT_DATASET.courses.length,raw:RAW_COURSES.length,runtime:courses.length}},
+      {name:'Pipeline REVIEW = 0',pass:reviews.length===0,detail:reviews.map(c=>String(c.sourceId))},
+      {name:'Pipeline REJECT = 0',pass:rejected===0,detail:rejected},
+      {name:'Duplicate sourceId = 0',pass:dup.length===0,detail:dup},
+      {name:'Semua kursus retired yang dikenal pasti dibuang',pass:[...retired].every(id=>!ids.includes(id)),detail:removed},
+      {name:'Kod SPM 8201 tersedia dalam input',pass:!!SUBJECT_BY_CODE['8201']&&/PRINSIP ELEKTRIK DAN ELEKTRONIK/i.test(SUBJECT_BY_CODE['8201'].name),detail:SUBJECT_BY_CODE['8201']?.name||''},
+      {name:'30450/33644/14039 semua READY',pass:patched.every(id=>RAW_COURSES.find(c=>String(c.sourceId)===id)?.pipelineStatus==='READY'),detail:patched.map(id=>({id,status:RAW_COURSES.find(c=>String(c.sourceId)===id)?.pipelineStatus}))},
+      {name:'30450/33644/14039 registry hash sepadan',pass:patchedRuntime.length===patched.length&&patchedRuntime.every(c=>compiledRuleHashMatchesRegistry(c,registryBinding(String(c.sourceId)))),detail:patchedRuntime.map(c=>String(c.sourceId))},
+      {name:'Kota Samarahan v123 kekal 7 program',pass:DEFAULT_DATASET.courses.filter(c=>c.inst==='ADTEC JTM Kampus Kota Samarahan (ILP Kota Samarahan)').length===7,detail:DEFAULT_DATASET.courses.filter(c=>c.inst==='ADTEC JTM Kampus Kota Samarahan (ILP Kota Samarahan)').length},
+      {name:'MARA canonical kekal 186',pass:DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA').length===186,detail:DEFAULT_DATASET.courses.filter(c=>c.agency==='MARA').length}
+    ];
+    return {version:VERSION,pass:rows.every(x=>x.pass),total:DEFAULT_DATASET.courses.length,removed,rows};
+  }
+  window.TVETMATCH_V124_RUNTIME_CLEANUP={version:VERSION,audit,removed};
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(window.TVETMATCH_PRODUCTION)return;try{const q=audit();console.log('v124 RUNTIME REVIEW CLEANUP',q.pass?'PASS':'CHECK',q);if(typeof refreshPublicTvetFilters==='function')refreshPublicTvetFilters('all')}catch(e){console.warn('v124 cleanup audit error',e)}},0));
+})();
+</script>
+
+
+
+<script id="v130-jtm-current-offering-cleanup">
+/* v130 — JTM Current Offering Cleanup Batch 2-4. */
+(()=>{
+  const VERSION='v130';
+  const retired=new Set(["7213", "7219", "7909", "8056", "8972", "9908", "10022", "10049", "10097", "10790", "10970", "10982", "11087", "11159", "30450", "30462", "30546", "30555", "30574"]);
+  const removed=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i],id=String(c.sourceId||'');
+    if(retired.has(id)){removed.push({sourceId:id,name:c.name,inst:c.inst});DEFAULT_DATASET.courses.splice(i,1)}
+  }
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+  window.TVETMATCH_V130_JTM_CLEANUP={version:VERSION,retired:[...retired],removed};
+})();
+</script>
+
+<script id="v131-jtm-current-offering-final-cleanup">
+/* v131 — JTM Current Offering Final Cleanup. */
+(()=>{
+  const VERSION='v131';
+  const retired=new Set(["34499","44059"]);
+  const removed=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i],id=String(c.sourceId||'');
+    if(retired.has(id)){removed.push({sourceId:id,name:c.name,inst:c.inst});DEFAULT_DATASET.courses.splice(i,1)}
+  }
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+  window.TVETMATCH_V131_JTM_CLEANUP={version:VERSION,retired:[...retired],removed};
+})();
+</script>
+
+<script id="v132-giatmara-current-offering-final-cleanup">
+/* v132 — GIATMARA Current Offering Cleanup Final. */
+(()=>{
+  const VERSION='v132';
+  const retired=new Set(["14075","14027","11528","12932","12470","12725","14039","33743"]);
+  const removed=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i],id=String(c.sourceId||'');
+    if(retired.has(id)){removed.push({sourceId:id,name:c.name,inst:c.inst});DEFAULT_DATASET.courses.splice(i,1)}
+  }
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+  window.TVETMATCH_V132_GIATMARA_CLEANUP={version:VERSION,retired:[...retired],removed};
+})();
+</script>
+
+<script id="v133-kpk-kpkm-current-offering-cleanup">
+/* v133 — KPK + KPKM Current Offering Cleanup. */
+(()=>{
+  const VERSION='v133';
+  const retired=new Set(["31474","31480","31483","31489","31492","31441"]);
+  const removed=[];
+  for(let i=DEFAULT_DATASET.courses.length-1;i>=0;i--){
+    const c=DEFAULT_DATASET.courses[i],id=String(c.sourceId||'');
+    if(retired.has(id)){removed.push({sourceId:id,name:c.name,inst:c.inst});DEFAULT_DATASET.courses.splice(i,1)}
+  }
+  VERIFIED_RULE_REGISTRY=seedRegistryFromCourses(DEFAULT_DATASET.courses);
+  resetDataset();
+  window.TVETMATCH_V133_KPK_KPKM_CLEANUP={version:VERSION,retired:[...retired],removed};
+})();
+</script>
+
+<script id="v125-deploy-ready">
+/* v134 — Deploy Final Production Gate. No eligibility rule mutations. */
+(()=>{
+  const VERSION='v134';
+  document.body.dataset.release=VERSION;
+  document.title='TVETMatch — Semakan Kelayakan TVET Awam';
+  const countEl=document.getElementById('catalogCoverageCount');
+  if(countEl) countEl.textContent=String(DEFAULT_DATASET?.courses?.length||0);
+
+  function audit(){
+    const ds=DEFAULT_DATASET?.courses||[];
+    const ids=ds.map(c=>String(c.sourceId||''));
+    const unique=new Set(ids);
+    const officialHosts=new Set(['www.tvet.gov.my','tvet.gov.my','mohon.tvet.gov.my','www.tvetmara.edu.my','tvetmara.edu.my']);
+    const retired=new Set(['31477','34067','34070','14168','14258','14498','14510','14618','14669','14678','14690','14720','33765','34049','35130','38181','43842','43890','45274','48605','48686','11486','11507','11705','11960','12173','12353','12536','7075','7084','7138','7183','7195','7210','7213','7219','7909','8056','8972','9908','10022','10049','10097','10790','10970','10982','11087','11159','30450','30462','30546','30555','30574','34499','44059','14075','14027','11528','12932','12470','12725','14039','33743','31474','31480','31483','31489','31492','31441']);
+    const routeRequired=['spm','pvma','skm2','skm3','mpv','nospm'];
+    const registryMiss=(typeof courses!=='undefined'?courses:[]).filter(c=>c.dataQuality==='VERIFIED'&&!registryBinding(String(c.sourceId))?.bound).map(c=>String(c.sourceId));
+    const hashMiss=(typeof courses!=='undefined'?courses:[]).filter(c=>c.dataQuality==='VERIFIED'&&registryBinding(String(c.sourceId))?.bound&&!compiledRuleHashMatchesRegistry(c,registryBinding(String(c.sourceId)))).map(c=>String(c.sourceId));
+    const rows=[
+      {name:'Dataset/RAW/runtime sepadan',pass:ds.length===RAW_COURSES.length&&RAW_COURSES.length===courses.length,detail:{dataset:ds.length,raw:RAW_COURSES.length,runtime:courses.length}},
+      {name:'Katalog aktif mempunyai sekurang-kurangnya satu program',pass:ds.length>0,detail:ds.length},
+      {name:'Semua sourceId unik',pass:ids.length===unique.size&&ids.every(Boolean),detail:{total:ids.length,unique:unique.size}},
+      {name:'Semua data VERIFIED',pass:ds.every(c=>c.dataQuality==='VERIFIED'),detail:ds.filter(c=>c.dataQuality!=='VERIFIED').map(c=>c.sourceId)},
+      {name:'Pipeline REVIEW kosong',pass:RAW_COURSES.every(c=>c.pipelineStatus==='READY'),detail:RAW_COURSES.filter(c=>c.pipelineStatus!=='READY').map(c=>({id:c.sourceId,status:c.pipelineStatus}))},
+      {name:'Tiada REJECT/duplicate pada import akhir',pass:(lastImportReport?.rejected||0)===0&&(lastImportReport?.duplicates||0)===0,detail:{rejected:lastImportReport?.rejected||0,duplicates:lastImportReport?.duplicates||0}},
+      {name:'Semua program AWAM + PROGRAM_PENUH',pass:ds.every(c=>String(c.sector).toUpperCase()==='AWAM'&&String(c.programType).toUpperCase()==='PROGRAM_PENUH'),detail:''},
+      {name:'Semua sumber pada domain TVET rasmi',pass:ds.every(c=>{try{return officialHosts.has(new URL(c.source).host)}catch(_){return false}}),detail:ds.filter(c=>{try{return !officialHosts.has(new URL(c.source).host)}catch(_){return true}}).map(c=>c.sourceId)},
+      {name:'Medan teras lengkap',pass:ds.every(c=>c.sourceId&&c.name&&c.agency&&c.inst&&c.state&&c.level&&c.source&&Array.isArray(c.options)&&c.options.length>0),detail:ds.filter(c=>!(c.sourceId&&c.name&&c.agency&&c.inst&&c.state&&c.level&&c.source&&Array.isArray(c.options)&&c.options.length>0)).map(c=>c.sourceId)},
+      {name:'Registry bound semua VERIFIED',pass:registryMiss.length===0,detail:registryMiss},
+      {name:'Registry hash sepadan',pass:hashMiss.length===0,detail:hashMiss},
+      {name:'Enam laluan utama tersedia',pass:routeRequired.every(r=>ALLOWED_ROUTES.has(r)),detail:routeRequired.filter(r=>!ALLOWED_ROUTES.has(r))},
+      {name:'Pendidikan Islam 1223 tersedia',pass:!!SUBJECT_BY_CODE['1223'],detail:SUBJECT_BY_CODE['1223']?.name||''},
+      {name:'Prinsip Elektrik dan Elektronik 8201 tersedia',pass:!!SUBJECT_BY_CODE['8201'],detail:SUBJECT_BY_CODE['8201']?.name||''},
+      {name:'Rekod retired tidak aktif',pass:[...retired].every(id=>!unique.has(id)),detail:[...retired].filter(id=>unique.has(id))},
+      {name:'MARA canonical 186 kekal',pass:ds.filter(c=>c.agency==='MARA').length===186,detail:ds.filter(c=>c.agency==='MARA').length},
+      {name:'Kota Samarahan 7 program kekal',pass:ds.filter(c=>c.inst==='ADTEC JTM Kampus Kota Samarahan (ILP Kota Samarahan)').length===7,detail:ds.filter(c=>c.inst==='ADTEC JTM Kampus Kota Samarahan (ILP Kota Samarahan)').length},
+      {name:'Notis liputan katalog tersedia',pass:!!document.getElementById('catalogCoverageCount'),detail:''},
+      {name:'Butang Semak Kelayakan tersedia',pass:!!document.getElementById('matchBtn'),detail:''},
+      {name:'Fokus Institusi tersedia',pass:!!document.getElementById('institutionFocus'),detail:''}
+    ];
+    return {version:VERSION,pass:rows.every(r=>r.pass),total:ds.length,rows};
+  }
+
+  window.TVETMATCH_DEPLOY_GATE={version:VERSION,audit};
+  window.TVETMATCH_RELEASE={version:VERSION,channel:'production',audit};
 })();
 </script>
 

@@ -738,6 +738,15 @@ select:focus,input:focus{border-color:#d1a526!important;outline:3px solid rgba(2
 .am-selector-meta{line-height:1.45!important}
 #resultsPanel .v105-summary-note{background:#eaf1f7!important;color:#3d5970!important}
 </style>
+
+<style id="tvet-bluegrey-v4-results-navigation">
+/* Only the redundant legacy results summary is hidden. The engine and count IDs stay intact. */
+#resultsPanel > .results-top{display:none!important}
+#resultsPanel > #summary,#resultsPanel > #gapSummary{display:none!important}
+#resultsPanel .am-course-wrap{scroll-margin-top:18px}
+#resultsPanel .am-toolbar h3{color:#27374d!important}
+#resultsPanel .am-count-tag{color:#365770!important;background:#edf3f7!important}
+</style>
 </head>
 <body>
 <header class="sitebar tvet-school-header">
@@ -8416,7 +8425,7 @@ if(document.readyState==='complete')apply();else window.addEventListener('load',
     html+=`<div class="am-course-grid">${slice.map(courseCard).join('')}</div>${renderPagination(totalPages)}</div>`;
     return html;
   }
-  function renderResultsUI(){
+  function renderResultsUI(scrollToCourses=false){
     const panel=document.getElementById('resultsPanel');
     const host=document.getElementById('results');
     const eligibleCount=state.eligible.length;
@@ -8431,7 +8440,8 @@ if(document.readyState==='complete')apply();else window.addEventListener('load',
     html += state.mode==='institution' ? renderInstitutionSelectors() : renderFieldSelectors();
     html += renderCoursesSection();
     host.innerHTML=html;
-    panel.scrollIntoView({behavior:'smooth',block:'start'});
+    const destination=scrollToCourses?host.querySelector('.am-course-wrap'):panel;
+    if(destination){requestAnimationFrame(()=>requestAnimationFrame(()=>destination.scrollIntoView({behavior:'smooth',block:'start'})));}
   }
   function ensureModal(){
     if(document.getElementById('amResultModal')) return;
@@ -8452,17 +8462,17 @@ if(document.readyState==='complete')apply();else window.addEventListener('load',
       if(!target) return;
       if(target.matches('#amChooseViewBtn')){ openModal(state.eligible.length+state.review.length+state.needsInput.length); return; }
       if(target.dataset.view){ state.mode=target.dataset.view; state.page=1; state.selectedCampus='ALL'; renderResultsUI(); return; }
-      if(target.dataset.agency){ state.selectedAgency=target.dataset.agency; state.selectedCampus='ALL'; state.page=1; renderResultsUI(); return; }
-      if(target.dataset.campus){ state.selectedCampus=target.dataset.campus; state.page=1; renderResultsUI(); return; }
-      if(target.dataset.field){ state.selectedField=target.dataset.field; state.page=1; renderResultsUI(); return; }
-      if(target.dataset.showStatus){state.showStatus=target.dataset.showStatus;state.page=1;renderResultsUI();return;}
+      if(target.dataset.agency){ state.selectedAgency=target.dataset.agency; state.selectedCampus='ALL'; state.page=1; renderResultsUI(true); return; }
+      if(target.dataset.campus){ state.selectedCampus=target.dataset.campus; state.page=1; renderResultsUI(true); return; }
+      if(target.dataset.field){ state.selectedField=target.dataset.field; state.page=1; renderResultsUI(true); return; }
+      if(target.dataset.showStatus){state.showStatus=target.dataset.showStatus;state.page=1;renderResultsUI(true);return;}
       if(target.dataset.page){
         const filtered=getFilteredCourses();
         const totalPages=Math.max(1,Math.ceil(filtered.length/state.pageSize));
         if(target.dataset.page==='prev') state.page=Math.max(1,state.page-1);
         else if(target.dataset.page==='next') state.page=Math.min(totalPages,state.page+1);
         else state.page=Number(target.dataset.page)||1;
-        renderResultsUI(); return;
+        renderResultsUI(true); return;
       }
       if(target.dataset.jumpTop){ document.getElementById('resultsPanel')?.scrollIntoView({behavior:'smooth',block:'start'}); }
     });
